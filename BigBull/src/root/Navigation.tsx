@@ -3,8 +3,9 @@ import React, {useEffect, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import Home from '../components/dashBoard/Home';
 import {createStackNavigator} from '@react-navigation/stack';
-import Splashscreen from '../components/onboarding/splashscreen'
+import Splashscreen from '../components/onboarding/SplashScreen'
 import Onboard from '../components/onboarding/Onboard';
+import DashboardNavigation from './DashboardNavigation';
 
 const Navigation = () => {
   const stack = createStackNavigator();
@@ -15,7 +16,7 @@ const Navigation = () => {
     }, 1500);
   }, []);
   return (
-    <NavigationContainer>
+    // <NavigationContainer>
       <stack.Navigator>
         {showSplash ? (
           <stack.Screen
@@ -29,9 +30,9 @@ const Navigation = () => {
           component={Onboard}
           options={{headerShown: false}}
         />
-        <stack.Screen name="Home" component={Home} />
+        <stack.Screen name="DashBoard" component={DashboardNavigation} />
       </stack.Navigator>
-    </NavigationContainer>
+    // </NavigationContainer>
   );
 };
 
