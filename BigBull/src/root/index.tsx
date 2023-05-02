@@ -1,18 +1,19 @@
 import React from 'react';
-import Navigation from './Navigation';
-import Home from '../components/dashBoard/Home';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import DashboardNavigation from './DashboardNavigation';
+import {QueryClientProvider, QueryClient} from 'react-query';
+import Navigation from './Navigation';
 
-const Tab = createBottomTabNavigator();
+// const Tab = createBottomTabNavigator();
+const queryClient = new QueryClient();
 
 const index = () => {
   return (
     <>
-      {/* <Navigation /> */}
-      {/* <Home/> */}
-      <DashboardNavigation/>
-      
+      <QueryClientProvider client={queryClient}>
+        <Navigation />
+        {/* <Home/> */}
+        {/* <DashboardNavigation /> */}
+      </QueryClientProvider>
     </>
   );
 };

@@ -1,13 +1,14 @@
 import {View, Text} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import Home from '../components/dashBoard/Home';
 import {createStackNavigator} from '@react-navigation/stack';
-import Splashscreen from '../components/onboarding/SplashScreen'
+import Splashscreen from '../components/onboarding/SplashScreen';
 import Onboard from '../components/onboarding/Onboard';
 import DashboardNavigation from './DashboardNavigation';
 
 const Navigation = () => {
+  // const navigator = useNavigation();
   const stack = createStackNavigator();
   const [showSplash, setShowSplash] = useState(true);
   useEffect(() => {
@@ -15,8 +16,19 @@ const Navigation = () => {
       setShowSplash(false);
     }, 1500);
   }, []);
+
+  // useEffect(() => {
+  //   const isLoggedIn = true;
+
+  //   if (isLoggedIn) {
+  //     navigator.navigate('DashboardNavigation');
+  //   } else {
+  //     navigator.navigate('Onboard');
+  //   }
+  // }, [navigate]);
+
   return (
-    // <NavigationContainer>
+    <NavigationContainer>
       <stack.Navigator>
         {showSplash ? (
           <stack.Screen
@@ -32,7 +44,7 @@ const Navigation = () => {
         />
         <stack.Screen name="DashBoard" component={DashboardNavigation} />
       </stack.Navigator>
-    // </NavigationContainer>
+    </NavigationContainer>
   );
 };
 

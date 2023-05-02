@@ -1,16 +1,37 @@
 
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Swiper from 'react-native-swiper';
 import LottieView from 'lottie-react-native';
 import { useNavigation } from '@react-navigation/native'; 
 import styles from './style';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import DashboardNavigation from '../../../root/DashboardNavigation';
 
 
 const Onboard = () => {
-  const navigator = useNavigation(); 
+  const [screenShown, setScreenShown] = useState(false);
+  useEffect(() => {
+    AsyncStorage.getItem('screenShown').then(value => {
+      if (value !== null) {
+        setScreenShown(true);
+      }
+    
+      else {
+        AsyncStorage.setItem('screenShown', 'true');
+      }
+    });
+  }, []);
+  const navigator = useNavigation();
+
   return (
-    <Swiper
+    <> 
+    {screenShown?(
+      <DashboardNavigation/>
+    ):(
+
+      
+      <Swiper
       style={styles.swiperContainer}
       showsButtons={false}
       loop={false}
@@ -22,7 +43,7 @@ const Onboard = () => {
           source={require('../../../assests/lottie/onboading_logo_one.json')}
           autoPlay
           loop
-        />
+          />
         <Text style={styles.slideText}>Buy & Trade Top Stocks</Text>
         <Text style={styles.subHeadingText}>
           A place that provides you with the world's top stocks that you can buy
@@ -37,7 +58,7 @@ const Onboard = () => {
           source={require('../../../assests/lottie/onboarding_logo_two.json')}
           autoPlay
           loop
-        />
+          />
         <Text style={styles.slideText}>Get Started with Tradebase</Text>
         <Text style={styles.subHeadingText}>
           A place that provides you with the world's top stocks that you can buy
@@ -50,6 +71,8 @@ const Onboard = () => {
        
       </View>
     </Swiper>
+          )}
+  </>
   );
 };
 
