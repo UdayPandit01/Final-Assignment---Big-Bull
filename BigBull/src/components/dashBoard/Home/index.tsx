@@ -5,22 +5,38 @@
 
 // const Drawer = createDrawerNavigator();
 
-// const Home = () => {
-//   return (
+// const DrawerNavigation = () => {
+//   // return (
 //     <NavigationContainer>
 //        <Drawer.Navigator initialRouteName="Home">
 //         <Drawer.Screen name="Holiday" component={Holiday} />
 //       </Drawer.Navigator>
 //     </NavigationContainer>
-//   );
+//   // );
 // };
 
 // export default Home;
 
-import {View, Text, FlatList} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  Button,
+  Dimensions,
+  Stylesheet,
+  StyleSheet,
+} from 'react-native';
 import React from 'react';
 import {useQuery} from 'react-query';
 import axios from 'axios';
+import Carousel from 'react-native-snap-carousel';
+import {useNavigation} from '@react-navigation/native';
+// import Carousel from 'react-native-reanimated-carousel';
+import Swiper from 'react-native-swiper';
+// import Navigation from '../../../root/Navigation';
+// import {createDrawerNavigator} from '@react-navigation/drawer';
+// import {NavigationContainer} from '@react-navigation/native';
+// import DrawerNavigation from '../../../root/DrawerNavigation';
 // import Carousel from 'react-native-reanimated-carousel';
 
 const fetchData = async () => {
@@ -34,16 +50,7 @@ const fetchData = async () => {
   // return response.data.dataList[2];
 };
 
-// const CarouselComponent = () => (
-//   <Carousel
-//     data={data}
-//     renderItem={({item}) => <Text style={{color: 'black'}}>{item.name}</Text>}
-//     sliderWidth={300}
-//     itemWidth={200}
-//   />
-// );
-
-const HomeApi = () => {
+const Home = () => {
   const {data, error, isLoading} = useQuery('nse', fetchData);
 
   if (isLoading) {
@@ -53,29 +60,54 @@ const HomeApi = () => {
     return <Text style={{color: 'black'}}>{error.message}</Text>;
   }
 
-
+  const width = Dimensions.get('window').width;
 
   return (
-    <FlatList
-      data={data}
-      renderItem={({item}) => <Text style={{color: 'black'}}>{item.heading}</Text>}
-      // renderItem={({item}) => <Text style={{color: 'black'}}>{item.dataList.data}</Text>}
-    />
+    <View>
+      {/* <View>
+    <Text>Home Screen</Text>
+    <Button title="Open Drawer" onPress={() => navigation.openDrawer()} />
+  </View> */}
+      <View style={styles.crouselContainer}>
+        <Carousel
+          styles={styles.Crousel}
+          data={data}
+          renderItem={({item}) => (
+            <View style={styles.renderItemContainer}>
+              <Text style={styles.renderItemText}>{item.heading}</Text>
+            </View>
+          )}
+          sliderWidth={350}
+          itemWidth={270}
+          // itemHeight={200}
+          // sliderHeight={200}
+        />
+      </View>
+    </View>
   );
-  // return (
-  //   <View>
-  //     <Text>Carousel</Text>
-  //     <CarouselComponent data={data.data} />
-
-  //     <Text>API List</Text>
-  //     {data.data.map((item) => (
-  //       <View key={item.indexCode}>
-  //         <Text>{item.indexName}</Text>
-  //         <Text>{item.lastPrice}</Text>
-  //       </View>
-  //     ))}
-  //   </View>
-  // );
 };
 
-export default HomeApi;
+export default Home;
+
+const styles = StyleSheet.create({
+  crouselContainer: {
+    backgroundColor: 'yellow',
+    height: 180,
+    marginTop:35,
+    // width:0,
+  },
+  renderItemContainer: {
+    height: 170,
+    margin:8,
+    backgroundColor: '#908FEC',
+
+    borderWidth:2,
+    borderRadius:25,
+  },
+  renderItemText: {
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: '700',
+    textAlign: 'center',
+  },
+});

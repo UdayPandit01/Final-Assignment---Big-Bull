@@ -10,20 +10,33 @@ const Tab = createBottomTabNavigator();
 const DashboardNavigation = () => {
   return (
     // <NavigationContainer>
-    <Tab.Navigator screenOptions={{headerTitleAlign: 'center'}}>
+    <Tab.Navigator
+      screenOptions={{
+        headerStyle: {backgroundColor: '#908FEC'},
+        headerTitleAlign: 'center',
+        headerTintColor:"#fff",
+      }}>
       <Tab.Screen
         name="Home"
         component={Home}
+      
+
         //   options={{headerShown: false}}
       />
       <Tab.Screen
+        screenOptions={{headerTitleAlign: 'center'}}
         name="Nifty50"
         component={Nifty50}
-        options={{headerShown: false}}
+        // options={{headerShown: false}}
       />
     </Tab.Navigator>
     // </NavigationContainer>
   );
 };
+
+// const headerStyles:{
+//   headerStyle:
+
+// }
 
 export default DashboardNavigation;

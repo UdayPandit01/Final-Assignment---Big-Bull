@@ -1,12 +1,13 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import {View, Text, Button} from 'react-native';
+import React from 'react';
 
-const Holiday = () => {
+const Holiday = ({navigation}) => {
   return (
     <View>
-      <Text>Holiday</Text>
+      <Text>Settings Screen</Text>
+      <Button title="Open Drawer" onPress={() => navigation.openDrawer()} />
     </View>
-  )
-}
+  );
+};
 
-export default Holiday
+export default Holiday;
