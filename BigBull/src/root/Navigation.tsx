@@ -6,6 +6,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Splashscreen from '../components/onboarding/SplashScreen';
 import Onboard from '../components/onboarding/Onboard';
 import DashboardNavigation from './DashboardNavigation';
+import DrawerNavigation from './DrawerNavigation';
 
 const Navigation = () => {
   // const navigator = useNavigation();
@@ -29,7 +30,7 @@ const Navigation = () => {
 
   return (
     <NavigationContainer>
-      <stack.Navigator>
+      <stack.Navigator initialRouteName="Drawer">
         {showSplash ? (
           <stack.Screen
             name="splash"
@@ -42,7 +43,11 @@ const Navigation = () => {
           component={Onboard}
           options={{headerShown: false}}
         />
-        <stack.Screen name="DashBoard" component={DashboardNavigation} />
+        {/* <stack.Screen
+          name="Drawer"
+          component={DrawerNavigation}
+          options={{headerShown: false}}
+        /> */}
       </stack.Navigator>
     </NavigationContainer>
   );

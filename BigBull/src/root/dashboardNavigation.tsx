@@ -14,15 +14,9 @@ const DashboardNavigation = () => {
       screenOptions={{
         headerStyle: {backgroundColor: '#908FEC'},
         headerTitleAlign: 'center',
-        headerTintColor:"#fff",
+        headerTintColor: '#fff',
       }}>
-      <Tab.Screen
-        name="Home"
-        component={Home}
-      
-
-        //   options={{headerShown: false}}
-      />
+      <Tab.Screen name="Home" component={Home} options={{headerShown: true}} />
       <Tab.Screen
         screenOptions={{headerTitleAlign: 'center'}}
         name="Nifty50"
@@ -34,9 +28,6 @@ const DashboardNavigation = () => {
   );
 };
 
-// const headerStyles:{
-//   headerStyle:
 
-// }
 
 export default DashboardNavigation;
