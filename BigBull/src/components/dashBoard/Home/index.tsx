@@ -54,7 +54,13 @@ const fetchData = async () => {
   // return response.data.dataList[2];
 };
 
+// interface draw {
+//   drawerOpen: any;
+// }
+
 const Home = () => {
+  // const {navigate} = useNavigation();
+  // console.log(drawerOpen);
   const {data, error, isLoading} = useQuery('nse', fetchData);
 
   if (isLoading) {
@@ -75,12 +81,13 @@ const Home = () => {
             borderRadius: 30,
             backgroundColor: '#908FEC',
           }}>
-          {/* <TouchableOpacity
-            onPress={() => {
-              drawer.openDrawer();
-            }}> */}
-          <UserIcon />
-          {/* </TouchableOpacity> */}
+          <TouchableOpacity
+          // onPress={() => {
+          //   drawerOpen.openDrawer();
+          // }}
+          >
+            <UserIcon />
+          </TouchableOpacity>
         </View>
         <View style={styles.userProfileTextContainer}>
           <Text style={styles.userProfileText}> Hey, User !</Text>
@@ -108,8 +115,9 @@ const Home = () => {
               {/* </LinearGradient>  */}
             </View>
           )}
-          sliderWidth={380}
-          itemWidth={260}
+          sliderWidth={355}
+          itemWidth={280}
+          loop={true}
         />
       </View>
     </View>

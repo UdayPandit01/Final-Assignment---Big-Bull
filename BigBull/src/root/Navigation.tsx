@@ -30,7 +30,7 @@ const Navigation = () => {
 
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName="Drawer">
+      <stack.Navigator >
         {showSplash ? (
           <stack.Screen
             name="splash"
@@ -43,10 +43,15 @@ const Navigation = () => {
           component={Onboard}
           options={{headerShown: false}}
         />
-        {/* <stack.Screen
+        <stack.Screen
           name="Drawer"
           component={DrawerNavigation}
-          options={{headerShown: false}}
+          options={{headerShown: true}}
+        />
+        {/* <stack.Screen
+          name="DashboardNavigation"
+          component={DrawerNavigation}
+          options={{headerShown: true}}
         /> */}
       </stack.Navigator>
     </NavigationContainer>

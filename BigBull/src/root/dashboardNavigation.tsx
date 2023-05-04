@@ -4,6 +4,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import Home from '../components/dashBoard/Home';
 import Nifty50 from '../components/dashBoard/Nifty50';
+import DrawerNavigation from './DrawerNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -16,9 +17,10 @@ const DashboardNavigation = () => {
         headerTitleAlign: 'center',
         headerTintColor: '#fff',
       }}>
-      <Tab.Screen name="Home" component={Home} options={{headerShown: true}} />
+      <Tab.Screen name="Home" component={Home} />
+      {/* <Tab.Screen name="Drawer" component={DrawerNavigation} /> */}
       <Tab.Screen
-        screenOptions={{headerTitleAlign: 'center'}}
+        // screenOptions={{headerTitleAlign: 'center'}}
         name="Nifty50"
         component={Nifty50}
         // options={{headerShown: false}}
@@ -27,7 +29,5 @@ const DashboardNavigation = () => {
     // </NavigationContainer>
   );
 };
-
-
 
 export default DashboardNavigation;
