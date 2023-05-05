@@ -10,9 +10,9 @@ const index = () => {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <Navigation />
+        {/* <Navigation /> */}
         {/* <Home/> */}
-        {/* <DashboardNavigation /> */}
+        <DashboardNavigation />
       </QueryClientProvider>
     </>
   );
