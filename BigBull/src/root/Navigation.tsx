@@ -7,6 +7,7 @@ import Splashscreen from '../components/onboarding/SplashScreen';
 import Onboard from '../components/onboarding/Onboard';
 import DashboardNavigation from './DashboardNavigation';
 import DrawerNavigation from './DrawerNavigation';
+import Top50 from '../components/dashBoard/Nifty50/Top50';
 
 const Navigation = () => {
   // const navigator = useNavigation();

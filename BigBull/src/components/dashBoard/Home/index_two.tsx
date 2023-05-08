@@ -5,9 +5,10 @@ import {NseData} from '../Home/nsedata';
 import Search_Icon from '../../../assests/nifty50_images/Search_Icon';
 import {TextInput} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/core';
+import Top50 from '../../dashBoard/Nifty50/Top50';
 // import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const Nifty50 = () => {
+const Index_two = () => {
   const navigator = useNavigation();
   const [nseData, setNseData] = useState<NseData>();
   useEffect(() => {
@@ -20,6 +21,7 @@ const Nifty50 = () => {
   }, []);
 
   const onClick = () => {
+    navigator.navigate('Top50', {nseData});
     getNse();
   };
   const callbackSuccess = scanResult => {
@@ -46,78 +48,50 @@ const Nifty50 = () => {
   };
 
   const renderItem = ({item}) => {
-   
     <View style={{padding: 10}}>
       <Text style={{color: 'black'}}>{item.symbol}</Text>
       <Text style={{color: 'black'}}>{item.timestamp}</Text>
       <Text style={{color: 'black'}}>{item.metadata.last}</Text>
-    </View>
+    </View>;
 
     // )
   };
 
   return (
-    <View>
-      <View style={styles.searchBar}>
-        <TextInput
-          placeholder="search..."
-          returnKeyType="search"
-          // keyboardType="search"
-          style={{marginLeft: 40, color: 'white', fontSize: 17}}
-        />
-        <Search_Icon width={28} height={45} />
+    <View style={styles.nifty50Card} onPress={() => onClick()}>
+      {/* <Text style={{color: 'black'}}>{'Go To Next'}</Text> */}
+
+      <View style={{margin: 10, alignItems: 'center',}}>
+        {nseData && <Text style={{color: 'black',fontSize:22,fontWeight:'500'}}>{nseData.name}</Text>}
       </View>
 
-       {/* <View style={styles.nifty50Card} onPress={() => onClick()}>
-        <Text style={{color: 'black'}}>{'Go To Next'}</Text>
-      
-        <View>
-        {nseData && <Text style={{color: 'black'}}>{nseData.name}</Text>}
-        </View>
+      {nseData && <Text style={{color: 'black',alignSelf:"center", fontSize:18,fontWeight:'400',marginTop:15}}>{nseData.timestamp}</Text>}
 
-        {nseData && <Text style={{color: 'black'}}>{nseData.timestamp}</Text>}
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          marginHorizontal: 60,
+          marginTop: 20,
+        }}>
+        {nseData && <Text style={{color: 'black', fontSize: 18,fontWeight:'400'}}>PRICE</Text>}
         {nseData && (
-          <Text style={{color: 'black'}}>{nseData.metadata.last}</Text>)} */}
-      
-      {/* </View>  */}
-      {nseData?.data !== undefined && (
-        <FlatList
-          data={nseData?.data}
-          nestedScrollEnabled
-          key={'*'}
-          bounces={false}
-          ListFooterComponent={() => {
-            return <View style={{height: 400}} />;
-          }}
-          showsVerticalScrollIndicator={false}
-          renderItem={({item, index}) => <Text style={{color:"black"}}>{'' + item.symbol}</Text>}
-        />
-      )}
-    
+          <Text style={{color: 'black', fontSize: 18,fontWeight:'300'}}>{nseData.metadata.last}</Text>
+        )}
+      </View>
     </View>
   );
 };
-
-export default Nifty50;
+export default Index_two;
 
 const styles = StyleSheet.create({
-  searchBar: {
-    borderRadius: 30,
-    height: 50,
-    margin: 11,
-    marginTop: 15,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingRight: 20,
-    backgroundColor: '#908FEC',
-    elevation:5,
-  
-  },
   nifty50Card: {
-    // borderWidth: 5,
-    // borderRadius: 25,
+    borderWidth: 2,
+    borderRadius: 25,
     margin: 30,
-    marginTop: 60,
-    height: '35%',
+    marginTop: 40,
+    height: '30%',
+    backgroundColor: '#F295C6',
+    elevation:25,
   },
 });
