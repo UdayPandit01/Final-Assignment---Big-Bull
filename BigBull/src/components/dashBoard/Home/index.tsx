@@ -36,11 +36,10 @@ import LinearGradient from 'react-native-linear-gradient';
 import {useNavigation} from '@react-navigation/native';
 import Swiper from 'react-native-swiper';
 import {WorldIndices} from '../../../data/worldindices';
-import Index_two from "../Home/index_two"
+import Index_two from '../Home/index_two';
 // import Nifty50 from '../Nifty50/index';
 
 // const [newSelectedRoleData, setNewSelectedRoleData] = useState<WorldIndices>();
-
 
 const fetchData = async () => {
   const response = await axios.get(
@@ -77,7 +76,7 @@ const Home = () => {
 
   return (
     <View>
-      <Index_two/>
+      <Index_two />
       {/* <View style={styles.userProfileContainer}>
         <View
           style={{
@@ -96,9 +95,9 @@ const Home = () => {
         <View style={styles.userProfileTextContainer}>
           <Text style={styles.userProfileText}> Hey, User !</Text>
           {/* <View style={{flexDirection:'column'}}> */}
-          {/* <Text style={styles.userProfilesubText}>Welcome to Tradebase</Text>
+      {/* <Text style={styles.userProfilesubText}>Welcome to Tradebase</Text>
         </View>
-      </View> */} 
+      </View> */}
 
       {/* </View>
       //  <View>
@@ -114,14 +113,16 @@ const Home = () => {
               <LinearGradient
                 style={styles.gradient}
                 colors={['#4B0DCF', '#DD7BC2']}>
-                <Text style={styles.renderItemText}>{item.heading.replace("_"," ")}</Text>
+                <Text style={styles.renderItemText}>
+                  {item.heading.replace('_', ' ')}
+                </Text>
                 <Text style={styles.renderItemText}>{item.data[1][0]}</Text>
                 <Text style={styles.renderItemText}>{item.data[1][2]}</Text>
               </LinearGradient>
               {/* </LinearGradient>  */}
             </View>
           )}
-          sliderWidth={355}
+          sliderWidth={350}
           itemWidth={280}
           loop={true}
         />

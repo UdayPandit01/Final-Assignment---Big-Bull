@@ -45,16 +45,15 @@ const Nifty50 = () => {
     }
   };
 
-  const renderItem = ({item}) => {
-   
-    <View style={{padding: 10}}>
-      <Text style={{color: 'black'}}>{item.symbol}</Text>
-      <Text style={{color: 'black'}}>{item.timestamp}</Text>
-      <Text style={{color: 'black'}}>{item.metadata.last}</Text>
-    </View>
+  // const renderItem = ({item}) => {
+  //   <View  style={{padding: 20}}>
+  //     <Text style={{color: 'black'}}>{item.symbol}</Text>
+  //     <Text style={{color: 'black'}}>{item.timestamp}</Text>
+  //     <Text style={{color: 'black'}}>{item.metadata.last}</Text>
+  //   </View>;
 
-    // )
-  };
+  //   // )
+  // };
 
   return (
     <View>
@@ -68,9 +67,9 @@ const Nifty50 = () => {
         <Search_Icon width={28} height={45} />
       </View>
 
-       {/* <View style={styles.nifty50Card} onPress={() => onClick()}>
+      {/* <View style={styles.nifty50Card} onPress={() => onClick()}>
         <Text style={{color: 'black'}}>{'Go To Next'}</Text>
-      
+
         <View>
         {nseData && <Text style={{color: 'black'}}>{nseData.name}</Text>}
         </View>
@@ -78,7 +77,7 @@ const Nifty50 = () => {
         {nseData && <Text style={{color: 'black'}}>{nseData.timestamp}</Text>}
         {nseData && (
           <Text style={{color: 'black'}}>{nseData.metadata.last}</Text>)} */}
-      
+
       {/* </View>  */}
       {nseData?.data !== undefined && (
         <FlatList
@@ -90,10 +89,25 @@ const Nifty50 = () => {
             return <View style={{height: 400}} />;
           }}
           showsVerticalScrollIndicator={false}
-          renderItem={({item, index}) => <Text style={{color:"black"}}>{'' + item.symbol}</Text>}
+          renderItem={({item, index}) => (
+            <View style={styles.itemContainer}>
+              <Text style={{color: 'black'}}>{'' + item.symbol}</Text>
+
+              <View style={{flexDirection:'row',justifyContent:"space-between",margin:10}}>
+                <Text style={{color: 'black'}}>
+                  {'Price ' + item.lastPrice}
+                </Text>
+                <Text style={{color: 'black'}}>{'open  ' + item.open}</Text>
+                </View>
+
+               <View style={{flexDirection:'row',justifyContent:"space-between",}}>
+                <Text style={{color: 'black'}}>{'DayHigh  ' + item.dayHigh}</Text>
+                <Text style={{color: 'black'}}>{'DayLow  ' + item.dayLow}</Text>
+              </View>
+            </View>
+          )}
         />
       )}
-    
     </View>
   );
 };
@@ -110,8 +124,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingRight: 20,
     backgroundColor: '#908FEC',
-    elevation:5,
-  
+    elevation: 5,
   },
   nifty50Card: {
     // borderWidth: 5,
@@ -119,5 +132,13 @@ const styles = StyleSheet.create({
     margin: 30,
     marginTop: 60,
     height: '35%',
+  },
+  itemContainer: {
+    borderWidth: 1,
+    borderRadius: 15,
+    height: 95,
+    padding: 10,
+    margin: 7,
+    marginHorizontal: 10,
   },
 });
