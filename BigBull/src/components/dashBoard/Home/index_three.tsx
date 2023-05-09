@@ -1,8 +1,6 @@
 import {
   View,
   Text,
-  FlatList,
-  Button,
   Dimensions,
   Stylesheet,
   StyleSheet,
