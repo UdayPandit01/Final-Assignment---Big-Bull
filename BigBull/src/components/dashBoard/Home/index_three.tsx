@@ -22,24 +22,13 @@ const fetchData = async () => {
   const response = await axios.get(
     'https://api.moneycontrol.com/mcapi/v1/us-markets/getCurrencies',
   );
-  // console.log(JSON.stringify(response, null, 2));
-  // setNewSelectedRoleData(JSON.parse(response.data));
   console.log(response.data.name);
 
-  // newSelectedRoleData?.dataList.
-
-  // console.log(response.data.dataList[2]);
   return response.data.name;
-  // return response.data.dataList[2];
+
 };
 
-// interface draw {
-//   drawerOpen: any;
-// }
-
 const index_three = () => {
-  // const {navigate} = useNavigation();
-  // console.log(drawerOpen);
   const {data, error, isLoading} = useQuery('nse', fetchData);
 
   if (isLoading) {
@@ -64,7 +53,6 @@ const index_three = () => {
               <Text style={styles.renderItemText}>{item.name}</Text>
               <Text style={styles.renderItemText}>{item.data[1]}</Text>
             </LinearGradient>
-            {/* </LinearGradient>  */}
           </View>
         )}
         sliderWidth={355}
@@ -80,9 +68,6 @@ export default index_three;
 
 const styles = StyleSheet.create({
   userProfileContainer: {
-    // backgroundColor:
-    // borderWidth: 2,
-    // borderRadius: 2,
     height: 50,
     margin: 25,
     marginTop: 45,
@@ -108,18 +93,12 @@ const styles = StyleSheet.create({
     paddingRight: 45,
   },
   crouselContainer: {
-    // backgroundColor: 'yellow',
     height: 190,
     marginTop: 20,
-    // width:0,
   },
   renderItemContainer: {
     height: 180,
     margin: 8,
-    // backgroundColor: '#908FEC',
-    // backgroundColor:LinearGradient
-    // borderWidth:2,
-    // borderRadius: 25,
   },
   gradient: {
     height: 180,

@@ -5,10 +5,10 @@ import {NseData} from '../Home/nsedata';
 import Search_Icon from '../../../assests/nifty50_images/Search_Icon';
 import {TextInput} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/core';
-// import {TouchableOpacity} from 'react-native-gesture-handler';
+import Index_two from '../Home/index_two';
 
 const Nifty50 = () => {
-  const navigator = useNavigation();
+  // const navigator = useNavigation();
   const [nseData, setNseData] = useState<NseData>();
   useEffect(() => {
     {
@@ -19,9 +19,6 @@ const Nifty50 = () => {
     }
   }, []);
 
-  const onClick = () => {
-    getNse();
-  };
   const callbackSuccess = scanResult => {
     setNseData(JSON.parse(scanResult));
     console.log('losinggggJAVADDffd ' + scanResult);
@@ -31,9 +28,6 @@ const Nifty50 = () => {
   };
   const getNse = async () => {
     try {
-      // NseModule.onBridge(
-      //   'https://www.nseindia.com/api/equity-stockIndices?index=NIFTY 50',
-      // );
       await NseModule.getAPIResponse(
         'https://www.nseindia.com/api/equity-stockIndices?index=NIFTY 50',
         callbackSuccess,
@@ -56,16 +50,19 @@ const Nifty50 = () => {
   // };
 
   return (
-    <View>
+    <View style={{}}>
       <View style={styles.searchBar}>
         <TextInput
           placeholder="search..."
           returnKeyType="search"
-          // keyboardType="search"
-          style={{marginLeft: 40, color: 'white', fontSize: 17}}
+          placeholderTextColor="white"
+          style={{marginLeft: 40, color: 'black', fontSize: 17}}
         />
         <Search_Icon width={28} height={45} />
       </View>
+      {/* <View>
+        <Index_two/>
+      </View> */}
 
       {/* <View style={styles.nifty50Card} onPress={() => onClick()}>
         <Text style={{color: 'black'}}>{'Go To Next'}</Text>
@@ -91,18 +88,31 @@ const Nifty50 = () => {
           showsVerticalScrollIndicator={false}
           renderItem={({item, index}) => (
             <View style={styles.itemContainer}>
-              <Text style={{color: 'black'}}>{'' + item.symbol}</Text>
+              <Text style={{color: 'black', fontSize: 16}}>
+                {'' + item.symbol}
+              </Text>
 
-              <View style={{flexDirection:'row',justifyContent:"space-between",margin:10}}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  margin: 15,
+                  marginHorizontal: 5,
+                }}>
                 <Text style={{color: 'black'}}>
-                  {'Price ' + item.lastPrice}
+                  {'Price: ' + item.lastPrice}
                 </Text>
-                <Text style={{color: 'black'}}>{'open  ' + item.open}</Text>
-                </View>
+                <Text style={{color: 'black'}}>{'Open:  ' + item.open}</Text>
+              </View>
 
-               <View style={{flexDirection:'row',justifyContent:"space-between",}}>
-                <Text style={{color: 'black'}}>{'DayHigh  ' + item.dayHigh}</Text>
-                <Text style={{color: 'black'}}>{'DayLow  ' + item.dayLow}</Text>
+              <View
+                style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                <Text style={{color: 'black'}}>
+                  {'DayHigh:  ' + item.dayHigh}
+                </Text>
+                <Text style={{color: 'black'}}>
+                  {'DayLow:  ' + item.dayLow}
+                </Text>
               </View>
             </View>
           )}
@@ -124,21 +134,19 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingRight: 20,
     backgroundColor: '#908FEC',
-    elevation: 5,
-  },
-  nifty50Card: {
-    // borderWidth: 5,
-    // borderRadius: 25,
-    margin: 30,
-    marginTop: 60,
-    height: '35%',
+    elevation: 9,
+    shadowColor: 'black',
   },
   itemContainer: {
-    borderWidth: 1,
+    backgroundColor: '#62CDFF',
+    opacity: 0.75,
+    // borderWidth: 1,
     borderRadius: 15,
-    height: 95,
+    height: 110,
     padding: 10,
     margin: 7,
-    marginHorizontal: 10,
+    marginHorizontal: 15,
+    elevation: 10,
+    shadowColor: 'black',
   },
 });

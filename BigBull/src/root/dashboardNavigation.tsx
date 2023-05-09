@@ -16,8 +16,9 @@ const DashboardNavigation = () => {
         headerStyle: {backgroundColor: '#908FEC'},
         headerTitleAlign: 'center',
         headerTintColor: '#fff',
+  
       }}>
-      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Home" component={Home} options={{headerShown: false}}/>
       {/* <Tab.Screen name="Drawer" component={DrawerNavigation} /> */}
       <Tab.Screen
         // screenOptions={{headerTitleAlign: 'center'}}
