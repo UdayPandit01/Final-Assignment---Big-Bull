@@ -30,7 +30,6 @@ import {
   
   const Index_one = () => {
     const navigation = useNavigation();
-    // console.log(drawerOpen);
     const {data, error, isLoading} = useQuery('nse', fetchData);
   
     if (isLoading) {
@@ -63,7 +62,7 @@ import {
                   <Text style={styles.renderItemSubText}>{item.data[1][2]}</Text>
                   </View>
   
-                  <View  style={{flexDirection:'row',justifyContent:"space-between",marginHorizontal:55,marginTop:0}}>
+                  <View  style={{flexDirection:'row',justifyContent:"space-between",marginHorizontal:55,marginBottom:0}}>
                   <Text style={styles.renderItemSubText}>{item.data[1][1]}</Text>
                   <Text style={styles.renderItemSubText}>{item.data[2][2]}</Text>
                   </View>
@@ -84,11 +83,11 @@ import {
   
   const styles = StyleSheet.create({
     crouselContainer: {
-      height: 150,
+      height: 160,
       marginTop:25,
     },
     renderItemContainer: {
-      height: 120,
+      height: 130,
       margin: 7,
       backgroundColor:'#D8D8D8',
       opacity:0.75,
