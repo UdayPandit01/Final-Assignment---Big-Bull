@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   userProfileContainer: {
     height: 50,
     margin: 25,
-    marginTop: 45,
+    marginTop: 50,
     flexDirection: 'row',
   },
   userProfileTextContainer: {

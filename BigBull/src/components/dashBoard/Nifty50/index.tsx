@@ -86,9 +86,10 @@ const Nifty50 = () => {
             return <View style={{height: 400}} />;
           }}
           showsVerticalScrollIndicator={false}
+          
           renderItem={({item, index}) => (
             <View style={styles.itemContainer}>
-              <Text style={{color: 'black', fontSize: 16}}>
+              <Text style={{color: 'black', fontSize: 17}}>
                 {'' + item.symbol}
               </Text>
 
@@ -139,13 +140,14 @@ const styles = StyleSheet.create({
   },
   itemContainer: {
     backgroundColor: '#62CDFF',
-    opacity: 0.75,
+    // backgroundColor: '#908FED',
+    opacity: 0.9,
     // borderWidth: 1,
     borderRadius: 15,
     height: 110,
     padding: 10,
     margin: 7,
-    marginHorizontal: 15,
+    marginHorizontal:16,
     elevation: 10,
     shadowColor: 'black',
   },

@@ -70,7 +70,7 @@ import {
               </View>
             )}
             sliderWidth={350}
-            itemWidth={280}
+            itemWidth={260}
             loop={true}
           />
         </View>
@@ -84,14 +84,15 @@ import {
   const styles = StyleSheet.create({
     crouselContainer: {
       height: 160,
-      marginTop:25,
+      marginTop:30,
     },
     renderItemContainer: {
-      height: 130,
-      margin: 7,
+      height: 128,
+      margin: 9,
       backgroundColor:'#D8D8D8',
-      opacity:0.75,
+      opacity:0.85,
       borderRadius: 30,
+      marginTop:10,
     },
     gradient: {
       height: 180,
@@ -102,7 +103,7 @@ import {
       fontSize: 22,
       fontWeight: '500',
       textAlign: 'center',
-      marginTop:20,
+      marginTop:18,
     },
     renderItemSubText:{
       fontWeight:'300',
