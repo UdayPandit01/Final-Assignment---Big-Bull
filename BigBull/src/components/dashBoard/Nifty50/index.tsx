@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   },
   itemContainer: {
     backgroundColor: '#62CDFF',
-    // backgroundColor: '#908FED',
+    // backgroundColor: '#F61C7A',
     opacity: 0.9,
     // borderWidth: 1,
     borderRadius: 15,
