@@ -22,7 +22,7 @@ import {
       'https://priceapi.moneycontrol.com/technicalCompanyData/globalMarket/getGlobalIndicesListingData?view=overview&deviceType=W',
     );
   
-    console.log(response.data.dataList);
+    // console.log(response.data.dataList);
   
     return response.data.dataList;
     
@@ -44,7 +44,7 @@ import {
     return (
      
         <View style={styles.crouselContainer}>
-          <View style={{flexDirection:'row'}}>
+          <View style={{flexDirection:'row',}}>
           <Text style={{color:"black",marginLeft:15,fontSize:15,fontWeight:'700',}} >International Market Price ></Text>
           </View>
   
@@ -83,8 +83,8 @@ import {
   
   const styles = StyleSheet.create({
     crouselContainer: {
-      height: 160,
-      marginTop:30,
+      height: 170,
+      marginTop:35,
     },
     renderItemContainer: {
       height: 128,
@@ -92,7 +92,7 @@ import {
       backgroundColor:'#D8D8D8',
       opacity:0.85,
       borderRadius: 30,
-      marginTop:10,
+      marginTop:15,
     },
     gradient: {
       height: 180,

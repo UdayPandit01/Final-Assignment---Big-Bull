@@ -10,6 +10,10 @@ import HomeIconFaded from '../assests/homeImages/homeIconFaded';
 import Nifty50_Icon from '../assests/homeImages/nifty50_Icon';
 import Nifty50_IconFaded from '../assests/homeImages/nifty50_IconFaded';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {BorderlessButton} from 'react-native-gesture-handler';
+import MarketStatus from '../components/dashBoard/MarketStatus';
+import MarkeStatus_IconFaded from '../assests/homeImages/markeStatus_IconFaded';
+import MarkeStatus_Icon from '../assests/homeImages/markeStatus_Icon';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,10 +22,28 @@ const DashboardNavigation = () => {
     // <NavigationContainer>
     <Tab.Navigator
       screenOptions={{
+        tabBarStyle: {
+          backgroundColor: 'white',
+          height: 55,
+          borderTopWidth: 0,
+        },
         headerStyle: {backgroundColor: '#908FEC'},
         headerTitleAlign: 'center',
         headerTintColor: '#fff',
+        tabBarShowLabel: false,
+        tabBarHideOnKeyboard: true,
+        headerShadowVisible: false,
       }}>
+      <Tab.Screen
+        name="MarketStatus"
+        component={MarketStatus}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({focused}) =>
+            focused ? <MarkeStatus_Icon /> : <MarkeStatus_IconFaded />,
+        }}
+      />
+
       <Tab.Screen
         name="Home"
         component={Home}
@@ -31,7 +53,7 @@ const DashboardNavigation = () => {
             focused ? <HomeIcon /> : <HomeIconFaded />,
         }}
       />
-    
+
       <Tab.Screen
         name="Nifty50"
         component={Nifty50}

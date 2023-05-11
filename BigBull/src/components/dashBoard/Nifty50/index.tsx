@@ -8,6 +8,8 @@ import {useNavigation} from '@react-navigation/core';
 import Index_two from '../Home/index_two';
 
 const Nifty50 = () => {
+  const [searchText, setSearchText] = useState('');
+
   // const navigator = useNavigation();
   const [nseData, setNseData] = useState<NseData>();
   useEffect(() => {
@@ -19,11 +21,11 @@ const Nifty50 = () => {
     }
   }, []);
 
-  const callbackSuccess = scanResult => {
+  const callbackSuccess = (scanResult: string) => {
     setNseData(JSON.parse(scanResult));
     console.log('losinggggJAVADDffd ' + scanResult);
   };
-  const callbackError = error => {
+  const callbackError = (error: string) => {
     console.log('errorlosinggggJAVADDffd' + error);
   };
   const getNse = async () => {
@@ -37,7 +39,16 @@ const Nifty50 = () => {
       console.error('testf ' + error);
     } finally {
     }
+
+    
   };
+
+  // const SearchBarExample = () => {
+  //   const [searchText, setSearchText] = useState('');
+
+  //   const filteredData = getNse?.filter((item: {name: string}) =>
+  //     item.name.toLowerCase().includes(searchText?.toLowerCase()),
+  //   );
 
   // const renderItem = ({item}) => {
   //   <View  style={{padding: 20}}>
@@ -48,14 +59,22 @@ const Nifty50 = () => {
 
   //   // )
   // };
+ 
+  // const filteredData = nseData?.data.filter(item =>
+  //   item.name?.toLowerCase().includes(searchText.toLowerCase()),
+  // );
 
   return (
-    <View style={{}}>
+    <View style={{backgroundColor: 'white', flex: 1}}>
       <View style={styles.searchBar}>
         <TextInput
           placeholder="search..."
           returnKeyType="search"
           placeholderTextColor="white"
+          onChangeText={text => setSearchText(text)}
+          value={searchText}
+          // onChangeText={text => setSearchText(text)}
+          // value={searchText}
           style={{marginLeft: 40, color: 'black', fontSize: 17}}
         />
         <Search_Icon width={28} height={45} />
@@ -78,7 +97,8 @@ const Nifty50 = () => {
       {/* </View>  */}
       {nseData?.data !== undefined && (
         <FlatList
-          data={nseData?.data}
+          data={nseData.data}
+          // data={filteredData}
           nestedScrollEnabled
           key={'*'}
           bounces={false}
@@ -86,7 +106,6 @@ const Nifty50 = () => {
             return <View style={{height: 400}} />;
           }}
           showsVerticalScrollIndicator={false}
-          
           renderItem={({item, index}) => (
             <View style={styles.itemContainer}>
               <Text style={{color: 'black', fontSize: 17}}>
@@ -107,7 +126,10 @@ const Nifty50 = () => {
               </View>
 
               <View
-                style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                }}>
                 <Text style={{color: 'black'}}>
                   {'DayHigh:  ' + item.dayHigh}
                 </Text>
@@ -122,6 +144,7 @@ const Nifty50 = () => {
     </View>
   );
 };
+// };
 
 export default Nifty50;
 
@@ -147,7 +170,7 @@ const styles = StyleSheet.create({
     height: 110,
     padding: 10,
     margin: 7,
-    marginHorizontal:16,
+    marginHorizontal: 16,
     elevation: 10,
     shadowColor: 'black',
   },

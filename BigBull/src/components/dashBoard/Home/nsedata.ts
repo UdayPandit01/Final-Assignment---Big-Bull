@@ -63,6 +63,7 @@ export interface Meta {
 }
 
 export interface Metadata {
+  Marketstate: any;
   indexName: string;
   open: number;
   high: number;

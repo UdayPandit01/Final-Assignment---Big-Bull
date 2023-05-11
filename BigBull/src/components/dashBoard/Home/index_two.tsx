@@ -2,15 +2,12 @@ import {View, Text, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import NseModule from '../../../NseModule';
 import {NseData} from '../Home/nsedata';
-import Search_Icon from '../../../assests/nifty50_images/Search_Icon';
-import {TextInput} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/core';
-import Top50 from '../../dashBoard/Nifty50/Top50';
+
 import LinearGradient from 'react-native-linear-gradient';
-// import {TouchableOpacity} from 'react-native-gesture-handler';
+
 
 const Index_two = () => {
-  const navigator = useNavigation();
   const [nseData, setNseData] = useState<NseData>();
   useEffect(() => {
     {
@@ -21,16 +18,12 @@ const Index_two = () => {
     }
   }, []);
 
-  const onClick = () => {
-    navigator.navigate('Top50', {nseData});
-    getNse();
-  };
   const callbackSuccess = scanResult => {
     setNseData(JSON.parse(scanResult));
-    console.log('losinggggJAVADDffd ' + scanResult);
+    // console.log('losinggggJAVADDffd ' + scanResult);
   };
   const callbackError = error => {
-    console.log('errorlosinggggJAVADDffd' + error);
+    // console.log('errorlosinggggJAVADDffd' + error);
   };
   const getNse = async () => {
     try {
@@ -118,7 +111,7 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     borderRadius: 25,
     margin: 30,
-    marginTop: 20,
+    marginTop: 30,
     height: 150,
     // backgroundColor: '#40BC9A',
     // backgroundColor: '#D8D8D8',

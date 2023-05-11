@@ -13,7 +13,7 @@ const index_three = () => {
       .get(API_URL)
       .then(response => {
         const currencies = response.data.data;
-        console.log("hey",currencies)
+        // console.log("hey",currencies)
         const currencyNames = currencies.map( (currency) => [currency.name," :  "+currency.open ]);
         setData(currencyNames);
         // console.log(currencyNames);
@@ -40,7 +40,7 @@ const index_three = () => {
 
   return (
     <>
-      <View style={{marginTop:25}}>
+      <View style={{marginTop:30}}>
         <Text style={{color:"black",marginLeft:15,fontSize:15,fontWeight:'700'}}>Currency Indices ></Text>
       </View>
       <Carousel
@@ -61,11 +61,12 @@ export default index_three;
 const styles = StyleSheet.create({
 
   renderItemContainer: {
-    height: 55,
+    height: 58,
     marginTop: 15,
+    // marginBottom:70,
     backgroundColor: '#4B0DCF',
     // backgroundColor:'#908FEC',
-    borderRadius: 20,
+    borderRadius: 17,
     justifyContent:'center',
     alignItems:'center',
     elevation:2,

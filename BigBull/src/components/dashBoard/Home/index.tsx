@@ -7,7 +7,7 @@ import Index_three from './index_three';
 
 const Home = () => {
   return (
-    <View>
+    <View style={{backgroundColor: 'white',flex:1}}>
       <HomeProfile />
       <Index_two />
       <Index_one />
