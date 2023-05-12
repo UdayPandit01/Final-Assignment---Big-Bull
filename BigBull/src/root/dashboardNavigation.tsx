@@ -9,8 +9,6 @@ import HomeIcon from '../assests/homeImages/homeIcon';
 import HomeIconFaded from '../assests/homeImages/homeIconFaded';
 import Nifty50_Icon from '../assests/homeImages/nifty50_Icon';
 import Nifty50_IconFaded from '../assests/homeImages/nifty50_IconFaded';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import {BorderlessButton} from 'react-native-gesture-handler';
 import MarketStatus from '../components/dashBoard/MarketStatus';
 import MarkeStatus_IconFaded from '../assests/homeImages/markeStatus_IconFaded';
 import MarkeStatus_Icon from '../assests/homeImages/markeStatus_Icon';
@@ -21,6 +19,7 @@ const DashboardNavigation = () => {
   return (
     // <NavigationContainer>
     <Tab.Navigator
+      initialRouteName="Home"
       screenOptions={{
         tabBarStyle: {
           backgroundColor: 'white',

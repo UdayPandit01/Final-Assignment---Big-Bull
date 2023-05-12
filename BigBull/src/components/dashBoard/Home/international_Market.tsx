@@ -13,7 +13,7 @@ import {
   import {useQuery} from 'react-query';
   import axios from 'axios';
   import Carousel from 'react-native-snap-carousel';
-
+  import styles from './style';
   import {useNavigation} from '@react-navigation/native';
  
   
@@ -81,34 +81,34 @@ import {
 
   export default Index_one;
   
-  const styles = StyleSheet.create({
-    crouselContainer: {
-      height: 170,
-      marginTop:35,
-    },
-    renderItemContainer: {
-      height: 128,
-      margin: 9,
-      backgroundColor:'#D8D8D8',
-      opacity:0.85,
-      borderRadius: 30,
-      marginTop:15,
-    },
-    gradient: {
-      height: 180,
-      borderRadius: 25,
-    },
-    renderItemText: {
-      color: '#000',
-      fontSize: 22,
-      fontWeight: '500',
-      textAlign: 'center',
-      marginTop:18,
-    },
-    renderItemSubText:{
-      fontWeight:'300',
-      color:"black",
-      marginTop:15
-    }
-  });
+  // const styles = StyleSheet.create({
+  //   crouselContainer: {
+  //     height: 170,
+  //     marginTop:35,
+  //   },
+  //   renderItemContainer: {
+  //     height: 128,
+  //     margin: 9,
+  //     backgroundColor:'#D8D8D8',
+  //     opacity:0.85,
+  //     borderRadius: 30,
+  //     marginTop:15,
+  //   },
+  //   gradient: {
+  //     height: 180,
+  //     borderRadius: 25,
+  //   },
+  //   renderItemText: {
+  //     color: '#000',
+  //     fontSize: 22,
+  //     fontWeight: '500',
+  //     textAlign: 'center',
+  //     marginTop:18,
+  //   },
+  //   renderItemSubText:{
+  //     fontWeight:'300',
+  //     color:"black",
+  //     marginTop:15
+  //   }
+  // });
   

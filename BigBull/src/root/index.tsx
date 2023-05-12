@@ -2,7 +2,7 @@ import React from 'react';
 import DashboardNavigation from './DashboardNavigation';
 import {QueryClientProvider, QueryClient} from 'react-query';
 import Navigation from './Navigation';
-import Index_one from '../components/dashBoard/Home/index_one';
+import Index_one from '../components/dashBoard/Home/international_Market';
 import {StatusBar} from 'react-native';
 
 // const Tab = createBottomTabNavigator();

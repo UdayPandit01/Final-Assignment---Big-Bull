@@ -2,6 +2,7 @@ import {View, Text, FlatList, StyleSheet} from 'react-native';
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 import Carousel from 'react-native-snap-carousel';
+import styles from './style';
 
 const API_URL =
   'https://api.moneycontrol.com/mcapi/v1/us-markets/getCurrencies';
@@ -31,7 +32,7 @@ const index_three = () => {
     currencyIndex();
   }, []);
   const renderItem = ({item}) => (
-    <View style={styles.renderItemContainer}>
+    <View style={styles.renderItemContainer_three}>
   
       <Text style={{color: 'white',fontSize:15,fontWeight:'400', alignSelf: 'center'}}>{item}</Text>
      
@@ -58,20 +59,20 @@ const index_three = () => {
 
 export default index_three;
 
-const styles = StyleSheet.create({
+// const styles = StyleSheet.create({
 
-  renderItemContainer: {
-    height: 58,
-    marginTop: 15,
-    // marginBottom:70,
-    backgroundColor: '#4B0DCF',
-    // backgroundColor:'#908FEC',
-    borderRadius: 17,
-    justifyContent:'center',
-    alignItems:'center',
-    elevation:2,
-    shadowColor:'#908FEC',
+//   renderItemContainer_three: {
+//     height: 58,
+//     marginTop: 15,
+//     // marginBottom:70,
+//     backgroundColor: '#4B0DCF',
+//     // backgroundColor:'#908FEC',
+//     borderRadius: 17,
+//     justifyContent:'center',
+//     alignItems:'center',
+//     elevation:2,
+//     shadowColor:'#908FEC',
 
-  },
-});
+//   },
+// });
 

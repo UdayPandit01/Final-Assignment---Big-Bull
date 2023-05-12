@@ -45,15 +45,10 @@ const Navigation = () => {
           options={{headerShown: false}}
         />
         <stack.Screen
-          name="Drawer"
-          component={DrawerNavigation}
+          name="DashboardNavigation"
+          component={DashboardNavigation}
           options={{headerShown: true}}
         />
-        {/* <stack.Screen
-          name="DashboardNavigation"
-          component={DrawerNavigation}
-          options={{headerShown: true}}
-        /> */}
       </stack.Navigator>
     </NavigationContainer>
   );
