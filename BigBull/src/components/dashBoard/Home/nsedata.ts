@@ -1,4 +1,5 @@
 export interface NseData {
+  filteredData: ArrayLike<any> | null | undefined;
   name: string;
   advance: Advance;
   timestamp: string;

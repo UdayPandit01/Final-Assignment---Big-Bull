@@ -45,7 +45,6 @@ const index_three = () => {
         <Text style={{color:"black",marginLeft:15,fontSize:15,fontWeight:'700'}}>Currency Indices ></Text>
       </View>
       <Carousel
-        styles={styles.Crousel}
         data={data}
         renderItem={renderItem}
         sliderWidth={350}

@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import React, { useEffect, useState } from 'react';
 import Swiper from 'react-native-swiper';
 import LottieView from 'lottie-react-native';
-import { useNavigation } from '@react-navigation/native'; 
+import { StackActions, useNavigation } from '@react-navigation/native'; 
 import styles from './style';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DashboardNavigation from '../../../root/DashboardNavigation';
@@ -65,14 +65,16 @@ const Onboard = () => {
           and trade
         </Text>
        
-        <TouchableOpacity style={styles.navigationButton} onPress={() => {navigator.navigate('DashBoard')}}>
+        {/* <TouchableOpacity style={styles.navigationButton} onPress={() => {navigator.navigate('DashboardNavigation')}}> */}
+        <TouchableOpacity style={styles.navigationButton} onPress={() => 
+                navigator.dispatch(StackActions.replace('DashboardNavigation'))} >
           <Text style={styles.buttonText} >Get Started</Text>
         </TouchableOpacity>
        
       </View>
     </Swiper>
           )}
-  </>
+          </>
   );
 };
 

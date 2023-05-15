@@ -32,6 +32,7 @@ const DashboardNavigation = () => {
         tabBarShowLabel: false,
         tabBarHideOnKeyboard: true,
         headerShadowVisible: false,
+        headerShown:false,
       }}>
       <Tab.Screen
         name="MarketStatus"
@@ -47,7 +48,7 @@ const DashboardNavigation = () => {
         name="Home"
         component={Home}
         options={{
-          headerShown: false,
+          // headerShown: false,
           tabBarIcon: ({focused}) =>
             focused ? <HomeIcon /> : <HomeIconFaded />,
         }}
@@ -57,7 +58,7 @@ const DashboardNavigation = () => {
         name="Nifty50"
         component={Nifty50}
         options={{
-          headerShown: false,
+          // headerShown: false,
           tabBarIcon: ({focused}) =>
             focused ? <Nifty50_Icon /> : <Nifty50_IconFaded />,
         }}

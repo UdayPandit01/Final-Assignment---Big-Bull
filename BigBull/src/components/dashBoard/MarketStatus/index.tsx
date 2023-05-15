@@ -48,74 +48,26 @@ const MarketStatus = () => {
   //   console.log(nseData?.marketState[i].market);
   // }
 
-//   Object.keys(nseData?.marketState || {}).map(key => {
-//     console.log(nseData?.marketState[key].market)
-// })
+  Object.keys(nseData?.marketState || {}).map(key => {
+    console.log(nseData?.marketState[key].market);
+  });
 
   return (
     <>
-      <View style={styles.nifty50Card} onPress={() => onClick()}>
-        {/* <Text style={{color: 'black'}}>{'Go To Next'}</Text> */}
-        <LinearGradient style={styles.gradient} colors={['#4B0DCF', '#DD7BC2']}>
-          <View style={{margin: 10, marginTop: 15, alignItems: 'center'}}>
-            {nseData && (
-              <Text style={{color: 'white', fontSize: 25, fontWeight: '800'}}>
-                {/* {nseData.marketStatus[0].market} */}
-              </Text>
-            )}
-          </View>
-
-          {nseData && (
-            <Text
-              style={{
-                color: 'white',
-                alignSelf: 'center',
-                fontSize: 18,
-                fontWeight: '500',
-                marginTop: 15,
-              }}>
-              {nseData.timestamp}
-            </Text>
+      {/* Other JSX code */}
+      {nseData?.marketState && (
+        <FlatList
+          data={nseData?.marketState}
+          // keyExtractor={(item, index) => index.toString()}
+          renderItem={({item}) => (
+            <View style={styles.marketItem}>
+              <Text style={styles.marketText}>{item.index}</Text>
+              <Text style={styles.marketText}>{item.marketStatus}</Text>
+              {/* Render other properties as needed */}
+            </View>
           )}
-
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              marginHorizontal: 35,
-              marginTop: 20,
-              // borderWidth:1,
-              borderRadius: 20,
-              backgroundColor: 'white',
-              elevation: 8,
-              shadowColor: 'black',
-              height: 25,
-            }}>
-            {nseData && (
-              <Text
-                style={{
-                  color: 'black',
-                  fontSize: 18,
-                  fontWeight: '400',
-                  marginLeft: 50,
-                }}>
-                Price :
-              </Text>
-            )}
-            {nseData && (
-              <Text
-                style={{
-                  color: 'black',
-                  fontSize: 18,
-                  fontWeight: '300',
-                  marginRight: 30,
-                }}>
-                {nseData}
-              </Text>
-            )}
-          </View>
-        </LinearGradient>
-      </View>
+        />
+      )}
     </>
   );
 };

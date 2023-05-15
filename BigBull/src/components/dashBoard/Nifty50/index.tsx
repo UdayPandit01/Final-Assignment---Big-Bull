@@ -75,9 +75,9 @@ const Nifty50 = () => {
   //   // )
   // };
 
-  // const filteredData = nseData?.data.filter(item =>
-  //   item.name?.toLowerCase().includes(searchText.toLowerCase()),
-  // );
+  const filteredData = nseData?.data.filter(item =>
+    item.symbol?.toLowerCase().includes(searchText.toLowerCase()),
+  );
 
   return (
     <View style={{backgroundColor: 'white', flex: 1}}>
@@ -89,6 +89,7 @@ const Nifty50 = () => {
           placeholderTextColor="white"
           onChangeText={text => setSearchText(text)}
           value={searchText}
+          // onSubmitEditing={filteredData}
           // onChangeText={text => setSearchText(text)}
           // value={searchText}
         />
@@ -113,7 +114,7 @@ const Nifty50 = () => {
             refreshing={refreshing} // Added pull to refesh state
             onRefresh={onRefresh}
             data={nseData.data}
-            // data={filteredData}
+            // data={nseData.filteredData}
             nestedScrollEnabled
             key={'*'}
             bounces={false}

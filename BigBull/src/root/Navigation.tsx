@@ -47,7 +47,7 @@ const Navigation = () => {
         <stack.Screen
           name="DashboardNavigation"
           component={DashboardNavigation}
-          options={{headerShown: true}}
+          options={{headerShown: false}}
         />
       </stack.Navigator>
     </NavigationContainer>
