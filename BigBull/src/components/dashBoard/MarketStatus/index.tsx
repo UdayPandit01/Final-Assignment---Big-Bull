@@ -7,6 +7,7 @@ import {TextInput} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/core';
 import Top50 from '../../dashBoard/Nifty50/Top50';
 import LinearGradient from 'react-native-linear-gradient';
+import { DrawerContentScrollView } from '@react-navigation/drawer';
 // import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const MarketStatus = () => {
@@ -48,23 +49,48 @@ const MarketStatus = () => {
   //   console.log(nseData?.marketState[i].market);
   // }
 
-  Object.keys(nseData?.marketState || {}).map(key => {
-    console.log(nseData?.marketState[key].market);
-  });
+  // Object.keys(nseData?.marketState || {}).map(key => {
+  //   console.log(nseData?.marketState[key].market);
+  // });
 
   return (
     <>
+    <View style={{height:300,backgroundColor:"black",marginTop:0}}><Text style={{color:'white'}}>Markets and Their Status</Text></View>
+     <View style={{backgroundColor:"black"}}>
+
+    <View style={{backgroundColor:"white",height:40,borderTopLeftRadius:50,borderTopRightRadius:50}}></View>
+    </View> 
       {/* Other JSX code */}
       {nseData?.marketState && (
+        
         <FlatList
           data={nseData?.marketState}
           // keyExtractor={(item, index) => index.toString()}
+          
           renderItem={({item}) => (
-            <View style={styles.marketItem}>
-              <Text style={styles.marketText}>{item.index}</Text>
-              <Text style={styles.marketText}>{item.marketStatus}</Text>
-              {/* Render other properties as needed */}
+           
+
+
+            <View style={{backgroundColor:'white',borderTopLeftRadius:0,borderTopRightRadius:0}}>
+          <Text style={{color:'black'}}></Text>
+           
+              <View style={styles.marketItemContainer}>
+         
+                <Text style={styles.marketText}>{item.market.toUpperCase()}</Text>
+
+                <View style={styles.marketItemSubContainer}>
+
+                <View style={styles.tradeDateContainer}>
+                <Text style={styles.tradeText}>{item.tradeDate}</Text>
+                <Text style={styles.tradeText}>{item.marketStatus}</Text>
+                </View>
+                <Text  style={styles.marketStatusText}>{item.marketStatusMessage}</Text>
+
+                </View>
+  
+              </View>
             </View>
+            
           )}
         />
       )}
@@ -74,24 +100,59 @@ const MarketStatus = () => {
 export default MarketStatus;
 
 const styles = StyleSheet.create({
-  nifty50Card: {
-    // borderWidth: 1,
-    borderRadius: 25,
-    margin: 30,
-    marginTop: 30,
+  marketItemContainer: {
+    // backgroundColor: 'white',
+    // borderWidth: 2,
+    borderRadius: 20,
+    padding: 10,
+    margin: 10,
+    marginTop:0,
     height: 150,
-    // backgroundColor: '#40BC9A',
-    // backgroundColor: '#D8D8D8',
+    marginHorizontal:20,
+    backgroundColor: '#908FEC',
+    elevation:6,
+    // shadowColor:'#908FEC',
+    // opacity:0.9
+    // paddingHorizontal:0,
+  },
+  marketText: {
+    color: 'white',
+    alignSelf:"center",
+    fontSize:20,
+    fontWeight:'500',
+  },
+  marketItemSubContainer:{
+    borderRadius:15,
+    // borderWidth:1,
+    marginTop:15,
+    marginHorizontal:22,
+    height:80,
+    // backgroundColor:'#DD7BC2',
+    backgroundColor:'white',
+    elevation:15
 
-    elevation: 20,
-    shadowColor: 'black',
-    //   shadowOffset:{width:-2,height:4},
-    //   shadowRadius:3,
   },
-  gradient: {
-    height: 160,
-    borderRadius: 25,
+  tradeDateContainer:{
+    borderRadius:7,
+    borderWidth:1,
+    marginTop:15,
+    paddingHorizontal:13,
+    marginHorizontal:25,
+    flexDirection:'row',
+    justifyContent:'space-between',
   },
+  tradeText:{
+    color:"black",
+    fontSize:15,
+  },
+  marketStatusText:{
+    marginTop:15,
+    fontSize:17,
+    fontWeight:'400',
+    color:'black',
+    alignSelf:'center',
+  },
+  
 });
 
 // import { View, Text } from 'react-native'
