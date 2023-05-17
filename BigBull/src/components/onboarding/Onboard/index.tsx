@@ -89,12 +89,12 @@ export default Onboard;
 //     backgroundColor: 'white',
 //   },
 
-//   slideLogo: {
-//     height: '62%',
-//     width: '60%',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
+  // slideLogo: {
+  //   height: '62%',
+  //   width: '60%',
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  // },
 
 //   slideText: {
 //     color: '#03314B',
