@@ -69,8 +69,8 @@ import {
               
               </View>
             )}
-            sliderWidth={350}
-            itemWidth={260}
+            sliderWidth={362}
+            itemWidth={275}
             loop={true}
           />
         </View>
@@ -81,34 +81,4 @@ import {
 
   export default Index_one;
   
-  // const styles = StyleSheet.create({
-  //   crouselContainer: {
-  //     height: 170,
-  //     marginTop:35,
-  //   },
-  //   renderItemContainer: {
-  //     height: 128,
-  //     margin: 9,
-  //     backgroundColor:'#D8D8D8',
-  //     opacity:0.85,
-  //     borderRadius: 30,
-  //     marginTop:15,
-  //   },
-  //   gradient: {
-  //     height: 180,
-  //     borderRadius: 25,
-  //   },
-  //   renderItemText: {
-  //     color: '#000',
-  //     fontSize: 22,
-  //     fontWeight: '500',
-  //     textAlign: 'center',
-  //     marginTop:18,
-  //   },
-  //   renderItemSubText:{
-  //     fontWeight:'300',
-  //     color:"black",
-  //     marginTop:15
-  //   }
-  // });
   

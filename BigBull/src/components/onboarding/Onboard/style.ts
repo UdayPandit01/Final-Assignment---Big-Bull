@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   swiperContainer: {},
@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '400',
     color: '#8198A5',
-
   },
 
   navigationButton: {
@@ -50,7 +49,6 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: 60,
     padding: 10,
-
   },
 
   buttonText: {
@@ -61,7 +59,6 @@ const styles = StyleSheet.create({
   },
 
   dot: {
-
     backgroundColor: 'white',
     width: 8,
     height: 8,
@@ -77,4 +74,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default styles
+export default styles;

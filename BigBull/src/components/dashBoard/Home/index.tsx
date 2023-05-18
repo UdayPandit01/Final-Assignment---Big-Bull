@@ -5,24 +5,24 @@ import Index_one from './international_Market';
 import HomeProfile from './homeProfile';
 import Index_three from './currency_Index';
 import styles from './style';
+import {ScrollView} from 'react-native-gesture-handler';
 
 const Home = () => {
-  // const [refreshing, setRefreshing] = React.useState(false);
-
-  // let onRefresh = React.useCallback(() => {
-  //   setRefreshing(true);
-  //   setTimeout(() => {
-  //     setRefreshing(false);
-  //   }, 2000);
-  // }, []);
-
   return (
-    <View style={{backgroundColor: 'white', flex: 1}}>
-      <HomeProfile />
-      <Index_two />
-      <Index_one />
-      <Index_three />
-    </View>
+    <ScrollView>
+      <View
+        style={{
+          backgroundColor: 'white',
+          flex: 1,
+          // justifyContent: 'center',
+          // alignItems: 'center',
+        }}>
+        <HomeProfile />
+        <Index_two />
+        <Index_one />
+        <Index_three />
+      </View>
+    </ScrollView>
   );
 };
 

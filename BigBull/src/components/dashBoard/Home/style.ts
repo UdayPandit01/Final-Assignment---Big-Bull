@@ -2,7 +2,6 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   nifty50Card: {
-    // borderWidth: 1,
     borderRadius: 25,
     margin: 30,
     marginTop: 30,
@@ -15,7 +14,7 @@ const styles = StyleSheet.create({
 
   crouselContainer: {
     height: 170,
-    marginTop: 35,
+    marginTop: 50,
   },
   renderItemContainer: {
     height: 128,
@@ -24,6 +23,7 @@ const styles = StyleSheet.create({
     opacity: 0.85,
     borderRadius: 30,
     marginTop: 15,
+    
   },
   gradient: {
     height: 180,
@@ -43,10 +43,8 @@ const styles = StyleSheet.create({
   },
   renderItemContainer_three: {
     height: 58,
-    marginTop: 15,
-    // marginBottom:70,
+    marginTop: 10,
     backgroundColor: '#4B0DCF',
-    // backgroundColor:'#908FEC',
     borderRadius: 17,
     justifyContent: 'center',
     alignItems: 'center',

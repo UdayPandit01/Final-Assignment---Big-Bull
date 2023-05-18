@@ -14,16 +14,10 @@ const index_three = () => {
       .get(API_URL)
       .then(response => {
         const currencies = response.data.data;
-        // console.log("hey",currencies)
         const currencyNames = currencies.map( (currency) => [currency.name," :  "+currency.open ]);
         setData(currencyNames);
-        // console.log(currencyNames);
-        // console.log(currencyOpen);
-        // console.log('data');
-        // console.log(data);
       })
-      //   console.log(response.data.name);
-      // })
+      
       .catch(error => {
         console.error(error.message);
       });
@@ -41,37 +35,22 @@ const index_three = () => {
 
   return (
     <>
-      <View style={{marginTop:30}}>
-        <Text style={{color:"black",marginLeft:15,fontSize:15,fontWeight:'700'}}>Currency Indices ></Text>
+      <View style={{marginTop:25,}}>
+        <Text style={{color:"black",marginLeft:15,fontSize:15,fontWeight:'700',marginTop:0}}>Currency Indices ></Text>
       </View>
+      <View style={{height:130,marginTop:7}}>
+
       <Carousel
         data={data}
         renderItem={renderItem}
-        sliderWidth={350}
+        sliderWidth={365}
         itemWidth={155}
         loop={true}
-      
-      />
+        
+        />
+        </View>
     </>
   );
 };
 
 export default index_three;
-
-// const styles = StyleSheet.create({
-
-//   renderItemContainer_three: {
-//     height: 58,
-//     marginTop: 15,
-//     // marginBottom:70,
-//     backgroundColor: '#4B0DCF',
-//     // backgroundColor:'#908FEC',
-//     borderRadius: 17,
-//     justifyContent:'center',
-//     alignItems:'center',
-//     elevation:2,
-//     shadowColor:'#908FEC',
-
-//   },
-// });
-

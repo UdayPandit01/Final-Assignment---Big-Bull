@@ -28,9 +28,6 @@ const Index_two = () => {
   };
   const getNse = async () => {
     try {
-      // NseModule.onBridge(
-      //   'https://www.nseindia.com/api/equity-stockIndices?index=NIFTY 50',
-      // );
       await NseModule.getAPIResponse(
         'https://www.nseindia.com/api/equity-stockIndices?index=NIFTY 50',
         callbackSuccess,
@@ -42,19 +39,8 @@ const Index_two = () => {
     }
   };
 
-  // const renderItem = ({item}) => {
-  //   <View style={{padding: 10}}>
-  //     <Text style={{color: 'black'}}>{item.symbol}</Text>
-  //     <Text style={{color: 'black'}}>{item.timestamp}</Text>
-  //     <Text style={{color: 'black'}}>{item.metadata.last}</Text>
-  //   </View>;
-
-  //   // )
-  // };
-
   return (
     <View style={styles.nifty50Card}>
-      {/* <Text style={{color: 'black'}}>{'Go To Next'}</Text> */}
       <TouchableOpacity
         onPress={() => {
           navigation.navigate('Nifty50');
@@ -87,7 +73,6 @@ const Index_two = () => {
               justifyContent: 'space-between',
               marginHorizontal: 35,
               marginTop: 20,
-              // borderWidth:1,
               borderRadius: 20,
               backgroundColor: 'white',
               elevation: 8,
@@ -124,23 +109,4 @@ const Index_two = () => {
 };
 export default Index_two;
 
-// const styles = StyleSheet.create({
-//   nifty50Card: {
-//     // borderWidth: 1,
-//     borderRadius: 25,
-//     margin: 30,
-//     marginTop: 30,
-//     height: 150,
-//     // backgroundColor: '#40BC9A',
-//     // backgroundColor: '#D8D8D8',
 
-//     elevation: 20,
-//     shadowColor: 'black',
-//     //   shadowOffset:{width:-2,height:4},
-//     //   shadowRadius:3,
-//   },
-//   gradient: {
-//     height: 160,
-//     borderRadius: 25,
-//   },
-// });

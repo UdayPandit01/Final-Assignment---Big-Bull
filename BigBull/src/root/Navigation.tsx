@@ -1,16 +1,11 @@
-import {View, Text} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
-import Home from '../components/dashBoard/Home';
 import {createStackNavigator} from '@react-navigation/stack';
 import Splashscreen from '../components/onboarding/SplashScreen';
 import Onboard from '../components/onboarding/Onboard';
 import DashboardNavigation from './DashboardNavigation';
-import DrawerNavigation from './DrawerNavigation';
-import Top50 from '../components/dashBoard/Nifty50/Top50';
 
 const Navigation = () => {
-  // const navigator = useNavigation();
   const stack = createStackNavigator();
   const [showSplash, setShowSplash] = useState(true);
   useEffect(() => {
@@ -19,19 +14,9 @@ const Navigation = () => {
     }, 1500);
   }, []);
 
-  // useEffect(() => {
-  //   const isLoggedIn = true;
-
-  //   if (isLoggedIn) {
-  //     navigator.navigate('DashboardNavigation');
-  //   } else {
-  //     navigator.navigate('Onboard');
-  //   }
-  // }, [navigate]);
-
   return (
     <NavigationContainer>
-      <stack.Navigator >
+      <stack.Navigator>
         {showSplash ? (
           <stack.Screen
             name="splash"

@@ -4,7 +4,6 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import Home from '../components/dashBoard/Home';
 import Nifty50 from '../components/dashBoard/Nifty50';
-import DrawerNavigation from './DrawerNavigation';
 import HomeIcon from '../assests/homeImages/homeIcon';
 import HomeIconFaded from '../assests/homeImages/homeIconFaded';
 import Nifty50_Icon from '../assests/homeImages/nifty50_Icon';
@@ -32,7 +31,7 @@ const DashboardNavigation = () => {
         tabBarShowLabel: false,
         tabBarHideOnKeyboard: true,
         headerShadowVisible: false,
-        headerShown:false,
+        headerShown: false,
       }}>
       <Tab.Screen
         name="MarketStatus"

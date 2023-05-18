@@ -1,20 +1,9 @@
-import {
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  StyleSheet,
-  ActivityIndicator,
-} from 'react-native';
+import {View, Text, FlatList, TextInput, ScrollView} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import NseModule from '../../../NseModule';
 import {NseData} from '../Home/nsedata';
 import Search_Icon from '../../../assests/nifty50_images/Search_Icon';
-import {RefreshControl, TextInput} from 'react-native-gesture-handler';
-import {useNavigation} from '@react-navigation/core';
-import Index_two from '../Home/nifty50_Card';
 import styles from './style';
-import LinearGradient from 'react-native-linear-gradient';
 
 const Nifty50 = () => {
   const [searchText, setSearchText] = useState('');
@@ -27,7 +16,6 @@ const Nifty50 = () => {
     }, 1000);
   }, []);
 
-  // const navigator = useNavigation();
   const [nseData, setNseData] = useState<NseData>();
   useEffect(() => {
     {
@@ -58,28 +46,13 @@ const Nifty50 = () => {
     }
   };
 
-  // const SearchBarExample = () => {
-  //   const [searchText, setSearchText] = useState('');
-
-  //   const filteredData = getNse?.filter((item: {name: string}) =>
-  //     item.name.toLowerCase().includes(searchText?.toLowerCase()),
-  //   );
-
-  // const renderItem = ({item}) => {
-  //   <View  style={{padding: 20}}>
-  //     <Text style={{color: 'black'}}>{item.symbol}</Text>
-  //     <Text style={{color: 'black'}}>{item.timestamp}</Text>
-  //     <Text style={{color: 'black'}}>{item.metadata.last}</Text>
-  //   </View>;
-
-  //   // )
-  // };
-
   const filteredData = nseData?.data.filter(item =>
     item.symbol?.toLowerCase().includes(searchText.toLowerCase()),
   );
 
   return (
+    // <ScrollView>
+
     <View style={{backgroundColor: 'white', flex: 1}}>
       <View style={styles.searchBar}>
         <TextInput
@@ -89,32 +62,17 @@ const Nifty50 = () => {
           placeholderTextColor="white"
           onChangeText={text => setSearchText(text)}
           value={searchText}
-          // onSubmitEditing={filteredData}
-          // onChangeText={text => setSearchText(text)}
-          // value={searchText}
         />
         <Search_Icon width={28} height={45} />
       </View>
 
-      {/* <View style={styles.nifty50Card} onPress={() => onClick()}>
-        <Text style={{color: 'black'}}>{'Go To Next'}</Text>
-
-        <View>
-        {nseData && <Text style={{color: 'black'}}>{nseData.name}</Text>}
-        </View>
-
-        {nseData && <Text style={{color: 'black'}}>{nseData.timestamp}</Text>}
-        {nseData && (
-          <Text style={{color: 'black'}}>{nseData.metadata.last}</Text>)} */}
-
-      {/* </View>  */}
       {nseData?.data !== undefined && (
         <>
           <FlatList
-            refreshing={refreshing} // Added pull to refesh state
+            refreshing={refreshing}
             onRefresh={onRefresh}
-            data={nseData.data}
-            // data={nseData.filteredData}
+            // data={nseData.data}
+            data={filteredData}
             nestedScrollEnabled
             key={'*'}
             bounces={false}
@@ -124,9 +82,6 @@ const Nifty50 = () => {
             showsVerticalScrollIndicator={false}
             renderItem={({item, index}) => (
               <View style={styles.itemContainer}>
-                {/* <LinearGradient
-                  style={styles.gradient}
-                  colors={['#4B0DCF', '#DD7BC2']}> */}
                 <Text style={{color: 'black', fontSize: 18}}>
                   {'' + item.symbol}
                 </Text>
@@ -156,49 +111,15 @@ const Nifty50 = () => {
                     {'DayLow:  ' + item.dayLow}
                   </Text>
                 </View>
-                {/* </LinearGradient> */}
               </View>
             )}
           />
         </>
       )}
     </View>
+    // </ScrollView>
   );
 };
 // };
 
 export default Nifty50;
-
-// const styles = StyleSheet.create({
-//   searchBar: {
-//     borderRadius: 30,
-//     height: 50,
-//     margin: 11,
-//     marginTop: 15,
-//     flexDirection: 'row',
-//     justifyContent: 'space-between',
-//     paddingRight: 20,
-//     backgroundColor: '#908FEC',
-//     elevation: 9,
-//     shadowColor: 'black',
-//   },
-//   searchBarText: {
-//     marginLeft: 40,
-//     color: 'black',
-//     fontSize: 17,
-//   },
-
-//   itemContainer: {
-//     backgroundColor: '#62CDFF',
-//     // backgroundColor: '#F61C7A',
-//     opacity: 0.9,
-//     // borderWidth: 1,
-//     borderRadius: 15,
-//     height: 110,
-//     padding: 10,
-//     margin: 7,
-//     marginHorizontal: 16,
-//     elevation: 10,
-//     shadowColor: 'black',
-//   },
-// });
