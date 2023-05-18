@@ -1,4 +1,7 @@
 import {StyleSheet} from 'react-native';
+import fonts from '../../../assests/fonts/Fira_Sans';
+import ColorConstants from '../../../assests/ColorPalette';
+import ColorPalette from '../../../assests/ColorPalette';
 
 const styles = StyleSheet.create({
   marketItemContainer: {
@@ -8,14 +11,16 @@ const styles = StyleSheet.create({
     marginTop: 0,
     height: 150,
     marginHorizontal: 20,
-    backgroundColor: '#908FEC',
+    backgroundColor: ColorPalette.textPurple,
     elevation: 6,
   },
   marketText: {
-    color: 'white',
+    color: ColorPalette.textWhite,
     alignSelf: 'center',
     fontSize: 20,
     fontWeight: '600',
+    fontFamily: fonts.BOLD,
+    // fontFamily:'fira'
   },
   marketItemSubContainer: {
     borderRadius: 15,
@@ -33,7 +38,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   tradeText: {
-    color: 'black',
+    color: ColorPalette.textBlack,
     fontSize: 15,
     fontWeight: '300',
   },
@@ -41,7 +46,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 16,
     fontWeight: '400',
-    color: 'black',
+    color: ColorPalette.textBlack,
     alignSelf: 'center',
   },
   Logo: {

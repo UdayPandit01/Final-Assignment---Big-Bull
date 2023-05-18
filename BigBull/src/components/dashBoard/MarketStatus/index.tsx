@@ -4,6 +4,7 @@ import NseModule from '../../../NseModule';
 import {NseData} from '../Home/nsedata';
 import Lottie from 'lottie-react-native';
 import styles from './style';
+import ColorPalette from '../../../assests/ColorPalette';
 
 // import {TouchableOpacity} from 'react-native-gesture-handler';
 
@@ -53,7 +54,7 @@ const MarketStatus = () => {
 
         style={{
           height: 285,
-          backgroundColor: '#908FEC',
+          backgroundColor: ColorPalette.textPurple,
           marginTop: 0,
         }}>
         <Lottie
@@ -64,19 +65,19 @@ const MarketStatus = () => {
         />
       </View>
 
-      <View style={{backgroundColor: '#908FEC'}}>
+      <View style={{backgroundColor: ColorPalette.textPurple}}>
 
         <View
           style={{
-            backgroundColor: 'white',
+            backgroundColor: ColorPalette.textWhite,
             height: 40,
             borderTopLeftRadius: 50,
             borderTopRightRadius: 50,
             borderRadius: 5,
           }}
         />
-        <View style={{backgroundColor:'white'}}>
-            <Text style={{color: 'black',fontSize:12,fontWeight:'500',marginLeft:20}}>Scroll Down For More >></Text>
+        <View style={{backgroundColor:ColorPalette.textWhite}}>
+            <Text style={{color: ColorPalette.textBlack,fontSize:12,fontWeight:'500',marginLeft:20}}>Scroll Down For More >></Text>
         </View>
       </View>
 
@@ -87,11 +88,11 @@ const MarketStatus = () => {
           renderItem={({item}) => (
             <View
               style={{
-                backgroundColor: 'white',
+                backgroundColor: ColorPalette.textWhite,
                 borderTopLeftRadius: 0,
                 borderTopRightRadius: 0,
               }}>
-              <Text style={{color: 'black'}} />
+              <Text style={{color: ColorPalette.textBlack}} />
 
               <View style={styles.marketItemContainer}>
                 <Text style={styles.marketText}>
@@ -115,57 +116,3 @@ const MarketStatus = () => {
   );
 };
 export default MarketStatus;
-
-// const styles = StyleSheet.create({
-//   marketItemContainer: {
-//     borderRadius: 20,
-//     padding: 10,
-//     margin: 10,
-//     marginTop: 0,
-//     height: 150,
-//     marginHorizontal: 20,
-//     backgroundColor: '#908FEC',
-//     elevation: 6,
-//   },
-//   marketText: {
-//     color: 'white',
-//     alignSelf: 'center',
-//     fontSize: 20,
-//     fontWeight: '600',
-//   },
-//   marketItemSubContainer: {
-//     borderRadius: 15,
-//     marginTop: 20,
-//     marginHorizontal: 25,
-//     height: 75,
-//     backgroundColor: '#F5F5FD',
-//     elevation: 15,
-//   },
-//   tradeDateContainer: {
-//     borderRadius: 7,
-//     marginTop: 15,
-//     marginHorizontal: 25,
-//     flexDirection: 'row',
-//     justifyContent: 'center',
-//   },
-//   tradeText: {
-//     color: 'black',
-//     fontSize: 15,
-//     fontWeight: '300',
-//   },
-//   marketStatusText: {
-//     marginTop: 10,
-//     fontSize: 16,
-//     fontWeight: '400',
-//     color: 'black',
-//     alignSelf: 'center',
-//   },
-//   Logo: {
-//     marginTop: 18,
-//     height: '83%',
-//     width: '65%',
-//     marginLeft: 30,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });

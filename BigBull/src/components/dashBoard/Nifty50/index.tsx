@@ -11,6 +11,8 @@ import NseModule from '../../../NseModule';
 import {NseData} from '../Home/nsedata';
 import Search_Icon from '../../../assests/nifty50_images/Search_Icon';
 import styles from './style';
+import fonts from '../../../assests/fonts/Fira_Sans';
+import ColorPalette from '../../../assests/ColorPalette';
 
 const Nifty50 = () => {
   const [searchText, setSearchText] = useState('');
@@ -60,13 +62,13 @@ const Nifty50 = () => {
   return (
     // <ScrollView>
 
-    <View style={{backgroundColor: 'white', flex: 1}}>
+    <View style={{backgroundColor: ColorPalette.textWhite, flex: 1}}>
       <View style={styles.searchBar}>
         <TextInput
           style={styles.searchBarText}
           placeholder="search..."
           returnKeyType="search"
-          placeholderTextColor="white"
+          placeholderTextColor="#fff"
           onChangeText={text => setSearchText(text)}
           value={searchText}
         />
@@ -89,7 +91,7 @@ const Nifty50 = () => {
             showsVerticalScrollIndicator={false}
             renderItem={({item, index}) => (
               <View style={styles.itemContainer}>
-                <Text style={{color: 'black', fontSize: 18}}>
+                <Text style={{color: ColorPalette.textBlack, fontSize: 18,fontFamily:fonts.BOLD,}}>
                   {'' + item.symbol}
                 </Text>
 
@@ -100,10 +102,10 @@ const Nifty50 = () => {
                     margin: 15,
                     marginHorizontal: 5,
                   }}>
-                  <Text style={{color: 'black'}}>
+                  <Text style={{color: ColorPalette.textBlack}}>
                     {'Price: ' + item.lastPrice}
                   </Text>
-                  <Text style={{color: 'black'}}>{'Open:  ' + item.open}</Text>
+                  <Text style={{color: ColorPalette.textBlack}}>{'Open:  ' + item.open}</Text>
                 </View>
 
                 <View
@@ -111,10 +113,10 @@ const Nifty50 = () => {
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                   }}>
-                  <Text style={{color: 'black'}}>
+                  <Text style={{color: ColorPalette.textBlack}}>
                     {'DayHigh:  ' + item.dayHigh}
                   </Text>
-                  <Text style={{color: 'black'}}>
+                  <Text style={{color: ColorPalette.textBlack}}>
                     {'DayLow:  ' + item.dayLow}
                   </Text>
                 </View>

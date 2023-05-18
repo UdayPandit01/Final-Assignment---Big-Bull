@@ -1,26 +1,28 @@
 import {StyleSheet} from 'react-native';
+import ColorConstants from '../../../assests/ColorPalette';
+import ColorPalette from '../../../assests/ColorPalette';
 
 const styles = StyleSheet.create({
   searchBar: {
     borderRadius: 30,
-    height: 50,
+    height: 45,
     margin: 11,
     marginTop: 15,
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingRight: 20,
-    backgroundColor: '#908FEC',
+    backgroundColor: ColorPalette.textPurple,
     elevation: 10,
     shadowColor: 'black',
   },
 
   searchBarText: {
     marginLeft: 40,
-    color: 'white',
+    color: ColorPalette.textWhite,
     fontSize: 17,
   },
   itemContainer: {
-    backgroundColor: '#62CDFF',
+    backgroundColor: ColorPalette.textSky,
     opacity: 0.9,
     borderRadius: 15,
     height: 110,

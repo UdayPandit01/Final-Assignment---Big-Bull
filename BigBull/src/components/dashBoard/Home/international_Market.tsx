@@ -15,6 +15,7 @@ import {
   import Carousel from 'react-native-snap-carousel';
   import styles from './style';
   import {useNavigation} from '@react-navigation/native';
+import ColorPalette from '../../../assests/ColorPalette';
  
   
   const fetchData = async () => {
@@ -33,10 +34,10 @@ import {
     const {data, error, isLoading} = useQuery('nse', fetchData);
   
     if (isLoading) {
-      return <Text style={{color: 'black'}}>Please Wait, Fetching Data...</Text>;
+      return <Text style={{color: ColorPalette.textBlack}}>Please Wait, Fetching Data...</Text>;
     }
     if (error) {
-      return <Text style={{color: 'black'}}>{error.message}</Text>;
+      return <Text style={{color: ColorPalette.textBlack}}>{error.message}</Text>;
     }
   
     const width = Dimensions.get('window').width;

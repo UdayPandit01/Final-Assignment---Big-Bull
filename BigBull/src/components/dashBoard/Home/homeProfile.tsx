@@ -1,6 +1,8 @@
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
 import UserIcon from '../../../assests/homeImages/userIcon';
+import ColorPalette from '../../../assests/ColorPalette';
+import styles from './style';
 
 const HomeProfile = () => {
   return (
@@ -9,7 +11,7 @@ const HomeProfile = () => {
         style={{
           borderWidth: 0,
           borderRadius: 30,
-          backgroundColor: '#908FEC',
+          backgroundColor:  ColorPalette.textPurple,
         }}>
         <TouchableOpacity>
           <UserIcon />
@@ -26,31 +28,3 @@ const HomeProfile = () => {
 };
 
 export default HomeProfile;
-
-const styles = StyleSheet.create({
-  userProfileContainer: {
-    height: 50,
-    margin: 25,
-    marginTop: 40,
-    flexDirection: 'row',
-  },
-  userProfileTextContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingLeft: 45,
-  },
-  userProfileText: {
-    color: 'black',
-    textAlign: 'center',
-    flex: 1,
-    paddingRight: 55,
-    fontSize: 15,
-    fontWeight: '500',
-  },
-  userProfilesubText: {
-    color: 'grey',
-    fontSize: 14,
-    fontWeight: '300',
-    paddingRight: 45,
-  },
-});

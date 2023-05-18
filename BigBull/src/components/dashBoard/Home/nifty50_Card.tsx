@@ -5,6 +5,7 @@ import {NseData} from './nsedata';
 import {useNavigation} from '@react-navigation/core';
 import styles from './style';
 import LinearGradient from 'react-native-linear-gradient';
+import ColorConstants from '../../../assests/ColorPalette';
 
 const Index_two = () => {
   const navigation = useNavigation();
@@ -24,7 +25,7 @@ const Index_two = () => {
     // console.log('losinggggJAVADDffd ' + scanResult);
   };
   const callbackError = error => {
-    // console.log('errorlosinggggJAVADDffd' + error);
+    console.log('errorlosinggggJAVADDffd' + error);
   };
   const getNse = async () => {
     try {
@@ -57,7 +58,7 @@ const Index_two = () => {
           {nseData && (
             <Text
               style={{
-                color: 'white',
+                color: ColorConstants.textWhite,
                 alignSelf: 'center',
                 fontSize: 18,
                 fontWeight: '500',
@@ -74,15 +75,15 @@ const Index_two = () => {
               marginHorizontal: 35,
               marginTop: 20,
               borderRadius: 20,
-              backgroundColor: 'white',
+              backgroundColor: ColorConstants.textWhite,
               elevation: 8,
-              shadowColor: 'black',
+              shadowColor: ColorConstants.textBlack,
               height: 25,
             }}>
             {nseData && (
               <Text
                 style={{
-                  color: 'black',
+                  color: ColorConstants.textBlack,
                   fontSize: 18,
                   fontWeight: '400',
                   marginLeft: 50,
@@ -93,7 +94,7 @@ const Index_two = () => {
             {nseData && (
               <Text
                 style={{
-                  color: 'black',
+                  color: ColorConstants.textBlack,
                   fontSize: 18,
                   fontWeight: '300',
                   marginRight: 30,
@@ -108,5 +109,3 @@ const Index_two = () => {
   );
 };
 export default Index_two;
-
-
