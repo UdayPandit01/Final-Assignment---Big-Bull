@@ -1,4 +1,11 @@
-import {View, Text, FlatList, TextInput, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  TextInput,
+  ScrollView,
+  StatusBar,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import NseModule from '../../../NseModule';
 import {NseData} from '../Home/nsedata';
