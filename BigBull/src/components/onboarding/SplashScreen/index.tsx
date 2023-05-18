@@ -2,7 +2,6 @@ import {View, Text, Image, StyleSheet, StatusBar} from 'react-native';
 import React from 'react';
 import LottieView from 'lottie-react-native';
 import styles from './style';
-// import Lottie from 'lottie-react-native';
 
 const Splashscreen = () => {
   return (
@@ -27,7 +26,6 @@ const Splashscreen = () => {
 
         <LottieView
           style={styles.logo}
-          // source={require('../../assests/lottie/bull_logo.json')}
           source={require('../../../assests/lottie/bull_logo.json')}
           autoPlay
           loop
