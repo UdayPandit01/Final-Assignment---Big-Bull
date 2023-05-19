@@ -2,6 +2,7 @@ import {View, Text, Image, StyleSheet, StatusBar} from 'react-native';
 import React from 'react';
 import LottieView from 'lottie-react-native';
 import styles from './style';
+import string from '../../../assests/string';
 
 const Splashscreen = () => {
   return (
@@ -14,12 +15,12 @@ const Splashscreen = () => {
       <View style={styles.container}>
         <View style={styles.textContainer}>
           <View style={styles.headingContainer}>
-            <Text style={styles.headingText}>BIG BULL</Text>
+            <Text style={styles.headingText}>{string.bigBullText}</Text>
           </View>
 
           <View style={styles.tagLineContainer}>
             <Text style={styles.tagLineText}>
-              Invest And Get Better Returns
+              {string.splashText}
             </Text>
           </View>
         </View>

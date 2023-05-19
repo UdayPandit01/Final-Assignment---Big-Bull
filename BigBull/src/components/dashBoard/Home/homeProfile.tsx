@@ -3,6 +3,7 @@ import React from 'react';
 import UserIcon from '../../../assests/homeImages/userIcon';
 import ColorPalette from '../../../assests/ColorPalette';
 import styles from './style';
+import string from '../../../assests/string';
 
 const HomeProfile = () => {
   return (
@@ -18,9 +19,9 @@ const HomeProfile = () => {
         </TouchableOpacity>
       </View>
       <View style={styles.userProfileTextContainer}>
-        <Text style={styles.userProfileText}> Hey, User !</Text>
+        <Text style={styles.userProfileText}>{string.heyUser}</Text>
         <View style={{flexDirection: 'column'}}>
-          <Text style={styles.userProfilesubText}>Welcome to Tradebase</Text>
+          <Text style={styles.userProfilesubText}>{string.welocmeText}</Text>
         </View>
       </View>
     </View>

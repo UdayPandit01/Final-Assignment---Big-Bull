@@ -6,6 +6,7 @@ import {useNavigation} from '@react-navigation/core';
 import styles from './style';
 import LinearGradient from 'react-native-linear-gradient';
 import ColorConstants from '../../../assests/ColorPalette';
+import fonts from '../../../assests/fonts/Fira_Sans';
 
 const Index_two = () => {
   const navigation = useNavigation();
@@ -49,7 +50,7 @@ const Index_two = () => {
         <LinearGradient style={styles.gradient} colors={['#4B0DCF', '#DD7BC2']}>
           <View style={{margin: 10, marginTop: 15, alignItems: 'center'}}>
             {nseData && (
-              <Text style={{color: 'white', fontSize: 25, fontWeight: '800'}}>
+              <Text style={{color: 'white', fontSize: 25, fontWeight: '800',fontFamily:fonts.BOLD}}>
                 {nseData.name}
               </Text>
             )}

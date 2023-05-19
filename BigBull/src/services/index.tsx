@@ -1,0 +1,5 @@
+'https://api.moneycontrol.com/mcapi/v1/us-markets/getCurrencies'
+'https://priceapi.moneycontrol.com/technicalCompanyData/globalMarket/getGlobalIndicesListingData?view=overview&deviceType=W'
+'https://www.nseindia.com/api/equity-stockIndices?index=NIFTY 50'
+'https://www.nseindia.com/api/equity-stockIndices?index=NIFTY 50'
+'https://www.nseindia.com/api/marketStatus'

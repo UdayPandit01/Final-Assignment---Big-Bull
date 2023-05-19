@@ -13,6 +13,7 @@ import Search_Icon from '../../../assests/nifty50_images/Search_Icon';
 import styles from './style';
 import fonts from '../../../assests/fonts/Fira_Sans';
 import ColorPalette from '../../../assests/ColorPalette';
+import string from '../../../assests/string';
 
 const Nifty50 = () => {
   const [searchText, setSearchText] = useState('');
@@ -66,7 +67,7 @@ const Nifty50 = () => {
       <View style={styles.searchBar}>
         <TextInput
           style={styles.searchBarText}
-          placeholder="search..."
+          placeholder={string.searchText}
           returnKeyType="search"
           placeholderTextColor="#fff"
           onChangeText={text => setSearchText(text)}
@@ -107,10 +108,12 @@ const Nifty50 = () => {
                     margin: 15,
                     marginHorizontal: 5,
                   }}>
-                  <Text style={{color: ColorPalette.textBlack,fontWeight: '500'}}>
+                  <Text
+                    style={{color: ColorPalette.textBlack, fontWeight: '500'}}>
                     {'Price: ' + item.lastPrice}
                   </Text>
-                  <Text style={{color: ColorPalette.textBlack,fontWeight: '500'}}>
+                  <Text
+                    style={{color: ColorPalette.textBlack, fontWeight: '500'}}>
                     {'Open:  ' + item.open}
                   </Text>
                 </View>
@@ -124,7 +127,8 @@ const Nifty50 = () => {
                     style={{color: ColorPalette.textBlack, fontWeight: '500'}}>
                     {'Day High:  ' + item.dayHigh}
                   </Text>
-                  <Text style={{color: ColorPalette.textBlack,fontWeight: '500'}}>
+                  <Text
+                    style={{color: ColorPalette.textBlack, fontWeight: '500'}}>
                     {'Day Low:  ' + item.dayLow}
                   </Text>
                 </View>
