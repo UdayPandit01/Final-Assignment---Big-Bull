@@ -91,7 +91,12 @@ const Nifty50 = () => {
             showsVerticalScrollIndicator={false}
             renderItem={({item, index}) => (
               <View style={styles.itemContainer}>
-                <Text style={{color: ColorPalette.textBlack, fontSize: 18,fontFamily:fonts.BOLD,}}>
+                <Text
+                  style={{
+                    color: ColorPalette.textBlack,
+                    fontSize: 18,
+                    fontFamily: fonts.BOLD,
+                  }}>
                   {'' + item.symbol}
                 </Text>
 
@@ -102,10 +107,12 @@ const Nifty50 = () => {
                     margin: 15,
                     marginHorizontal: 5,
                   }}>
-                  <Text style={{color: ColorPalette.textBlack}}>
+                  <Text style={{color: ColorPalette.textBlack,fontWeight: '500'}}>
                     {'Price: ' + item.lastPrice}
                   </Text>
-                  <Text style={{color: ColorPalette.textBlack}}>{'Open:  ' + item.open}</Text>
+                  <Text style={{color: ColorPalette.textBlack,fontWeight: '500'}}>
+                    {'Open:  ' + item.open}
+                  </Text>
                 </View>
 
                 <View
@@ -113,11 +120,12 @@ const Nifty50 = () => {
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                   }}>
-                  <Text style={{color: ColorPalette.textBlack}}>
-                    {'DayHigh:  ' + item.dayHigh}
+                  <Text
+                    style={{color: ColorPalette.textBlack, fontWeight: '500'}}>
+                    {'Day High:  ' + item.dayHigh}
                   </Text>
-                  <Text style={{color: ColorPalette.textBlack}}>
-                    {'DayLow:  ' + item.dayLow}
+                  <Text style={{color: ColorPalette.textBlack,fontWeight: '500'}}>
+                    {'Day Low:  ' + item.dayLow}
                   </Text>
                 </View>
               </View>
