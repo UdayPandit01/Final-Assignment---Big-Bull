@@ -5,6 +5,8 @@ import {NseData} from '../Home/nsedata';
 import Lottie from 'lottie-react-native';
 import styles from './style';
 import ColorPalette from '../../../assests/ColorPalette';
+import { BASE_URL_NSE, marketStatus } from '../../../services';
+import { ScrollView } from 'react-native-gesture-handler';
 
 // import {TouchableOpacity} from 'react-native-gesture-handler';
 
@@ -29,7 +31,8 @@ const MarketStatus = () => {
   const getNse = async () => {
     try {
       await NseModule.getAPIResponse(
-        'https://www.nseindia.com/api/marketStatus',
+        // 'https://www.nseindia.com/api/marketStatus',
+        BASE_URL_NSE+marketStatus,
         callbackSuccess,
         callbackError,
       );
@@ -49,11 +52,13 @@ const MarketStatus = () => {
 
   return (
     <>
+    <ScrollView>
+
     
       <View
 
-        style={{
-          height: 285,
+style={{
+  height: 285,
           backgroundColor: ColorPalette.textPurple,
           marginTop: 0,
         }}>
@@ -110,8 +115,9 @@ const MarketStatus = () => {
               </View>
             </View>
           )}
-        />
-      )}
+          />
+          )}
+          </ScrollView>
     </>
   );
 };

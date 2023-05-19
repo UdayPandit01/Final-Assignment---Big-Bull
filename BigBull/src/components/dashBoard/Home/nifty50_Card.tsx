@@ -7,6 +7,7 @@ import styles from './style';
 import LinearGradient from 'react-native-linear-gradient';
 import ColorConstants from '../../../assests/ColorPalette';
 import fonts from '../../../assests/fonts/Fira_Sans';
+import {BASE_URL_NSE, nifty50} from '../../../services';
 
 const Index_two = () => {
   const navigation = useNavigation();
@@ -31,7 +32,7 @@ const Index_two = () => {
   const getNse = async () => {
     try {
       await NseModule.getAPIResponse(
-        'https://www.nseindia.com/api/equity-stockIndices?index=NIFTY 50',
+        BASE_URL_NSE + nifty50,
         callbackSuccess,
         callbackError,
       );
@@ -50,7 +51,13 @@ const Index_two = () => {
         <LinearGradient style={styles.gradient} colors={['#4B0DCF', '#DD7BC2']}>
           <View style={{margin: 10, marginTop: 15, alignItems: 'center'}}>
             {nseData && (
-              <Text style={{color: 'white', fontSize: 25, fontWeight: '800',fontFamily:fonts.BOLD}}>
+              <Text
+                style={{
+                  color: 'white',
+                  fontSize: 25,
+                  fontWeight: '800',
+                  fontFamily: fonts.BOLD,
+                }}>
                 {nseData.name}
               </Text>
             )}

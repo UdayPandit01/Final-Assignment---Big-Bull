@@ -17,10 +17,12 @@ import styles from './style';
 import {useNavigation} from '@react-navigation/native';
 import ColorPalette from '../../../assests/ColorPalette';
 import string from '../../../assests/string';
+import {BASE_URL_PRICE, marketPrice} from '../../../services';
 
 const fetchData = async () => {
   const response = await axios.get(
-    'https://priceapi.moneycontrol.com/technicalCompanyData/globalMarket/getGlobalIndicesListingData?view=overview&deviceType=W',
+    // 'https://priceapi.moneycontrol.com/technicalCompanyData/globalMarket/getGlobalIndicesListingData?view=overview&deviceType=W',
+    BASE_URL_PRICE + marketPrice,
   );
 
   // console.log(response.data.dataList);

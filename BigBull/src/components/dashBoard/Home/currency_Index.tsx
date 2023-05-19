@@ -5,9 +5,11 @@ import Carousel from 'react-native-snap-carousel';
 import styles from './style';
 import ColorPalette from '../../../assests/ColorPalette';
 import string from '../../../assests/string';
+import {BASE_URL_CURRENCY, getCurrency} from '../../../services';
 
 const API_URL =
-  'https://api.moneycontrol.com/mcapi/v1/us-markets/getCurrencies';
+  // 'https://api.moneycontrol.com/mcapi/v1/us-markets/getCurrencies';
+  BASE_URL_CURRENCY + getCurrency;
 
 const index_three = () => {
   const [data, setData] = useState();
