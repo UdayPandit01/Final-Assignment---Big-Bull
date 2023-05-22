@@ -19,9 +19,7 @@ const Splashscreen = () => {
           </View>
 
           <View style={styles.tagLineContainer}>
-            <Text style={styles.tagLineText}>
-              {string.splashText}
-            </Text>
+            <Text style={styles.tagLineText}>{string.splashText}</Text>
           </View>
         </View>
 

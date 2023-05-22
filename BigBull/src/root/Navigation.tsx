@@ -12,7 +12,7 @@ const Navigation = () => {
   useEffect(() => {
     setTimeout(() => {
       setShowSplash(false);
-    }, 1500);
+    }, 3000);
   }, []);
 
   return (

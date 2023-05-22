@@ -46,11 +46,13 @@ const Nifty50 = () => {
   };
   const getNse = async () => {
     try {
-      await NseModule.getAPIResponse(
-        BASE_URL_NSE + nifty50,
-        callbackSuccess,
-        callbackError,
-      );
+      setInterval(async () => {
+        await NseModule.getAPIResponse(
+          BASE_URL_NSE + nifty50,
+          callbackSuccess,
+          callbackError,
+        );
+      }, 5000);
     } catch (error) {
       console.error('testf ' + error);
     } finally {
@@ -62,10 +64,9 @@ const Nifty50 = () => {
   );
 
   return (
-    // <ScrollView>
-
     <View style={{backgroundColor: ColorPalette.textWhite, flex: 1}}>
       <View style={styles.searchBar}>
+        {/* <Search_Icon width={25} height={43} /> */}
         <TextInput
           style={styles.searchBarText}
           placeholder={string.searchText}
@@ -88,7 +89,7 @@ const Nifty50 = () => {
             key={'*'}
             bounces={false}
             ListFooterComponent={() => {
-              return <View style={{height: 400}} />;
+              return <View style={{height: 5}} />;
             }}
             showsVerticalScrollIndicator={false}
             renderItem={({item, index}) => (
@@ -139,9 +140,7 @@ const Nifty50 = () => {
         </>
       )}
     </View>
-    // </ScrollView>
   );
 };
-// };
 
 export default Nifty50;

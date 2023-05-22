@@ -5,6 +5,7 @@ import ColorPalette from '../../../assests/ColorPalette';
 const styles = StyleSheet.create({
   searchBar: {
     borderRadius: 30,
+    width:'93%',
     height: 45,
     margin: 11,
     marginTop: 15,
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
   },
 
   searchBarText: {
-    marginLeft: 40,
+    marginLeft: 30,
     color: ColorPalette.textWhite,
     fontSize: 17,
   },

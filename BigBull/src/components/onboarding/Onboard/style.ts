@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     height: 8,
     borderRadius: 10,
     borderWidth: 0.5,
+    marginRight:3,
   },
 
   activeDot: {
@@ -71,6 +72,7 @@ const styles = StyleSheet.create({
     width: 19,
     height: 8,
     borderRadius: 25,
+    marginRight:3,
   },
 });
 
