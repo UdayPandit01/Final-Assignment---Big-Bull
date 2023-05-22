@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Splashscreen from '../components/onboarding/SplashScreen';
 import Onboard from '../components/onboarding/Onboard';
 import DashboardNavigation from './DashboardNavigation';
+import routes from '../assests/routes';
 
 const Navigation = () => {
   const stack = createStackNavigator();
@@ -19,18 +20,18 @@ const Navigation = () => {
       <stack.Navigator>
         {showSplash ? (
           <stack.Screen
-            name="splash"
+            name={routes.SplashScreen.SplashScreen.path}
             component={Splashscreen}
             options={{headerShown: false}}
           />
         ) : null}
         <stack.Screen
-          name="Onboarding"
+          name={routes.onboarding.oboard.path}
           component={Onboard}
           options={{headerShown: false}}
         />
         <stack.Screen
-          name="DashboardNavigation"
+          name={routes.root.path}
           component={DashboardNavigation}
           options={{headerShown: false}}
         />

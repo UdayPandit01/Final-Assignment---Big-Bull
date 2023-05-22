@@ -11,6 +11,7 @@ import Nifty50_IconFaded from '../assests/homeImages/nifty50_IconFaded';
 import MarketStatus from '../components/dashBoard/MarketStatus';
 import MarkeStatus_IconFaded from '../assests/homeImages/markeStatus_IconFaded';
 import MarkeStatus_Icon from '../assests/homeImages/markeStatus_Icon';
+import routes from '../assests/routes';
 
 const Tab = createBottomTabNavigator();
 
@@ -34,7 +35,7 @@ const DashboardNavigation = () => {
         headerShown: false,
       }}>
       <Tab.Screen
-        name="MarketStatus"
+        name={routes.dashboard.MarketStatus.path}
         component={MarketStatus}
         options={{
           headerShown: false,
@@ -44,7 +45,7 @@ const DashboardNavigation = () => {
       />
 
       <Tab.Screen
-        name="Home"
+        name={routes.dashboard.Home.path}
         component={Home}
         options={{
           // headerShown: false,
@@ -54,7 +55,7 @@ const DashboardNavigation = () => {
       />
 
       <Tab.Screen
-        name="Nifty50"
+        name={routes.dashboard.Nifty50.path}
         component={Nifty50}
         options={{
           // headerShown: false,

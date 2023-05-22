@@ -8,8 +8,9 @@ import LinearGradient from 'react-native-linear-gradient';
 import ColorConstants from '../../../assests/ColorPalette';
 import fonts from '../../../assests/fonts/Fira_Sans';
 import {BASE_URL_NSE, nifty50} from '../../../services';
+import routes from '../../../assests/routes';
 
-const Index_two = () => {
+const Nifty50_Card = () => {
   const navigation = useNavigation();
 
   const [nseData, setNseData] = useState<NseData>();
@@ -46,7 +47,8 @@ const Index_two = () => {
     <View style={styles.nifty50Card}>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('Nifty50');
+          // navigation.navigate('Nifty50');
+          navigation.navigate(routes.dashboard.Nifty50.path);
         }}>
         <LinearGradient style={styles.gradient} colors={['#4B0DCF', '#DD7BC2']}>
           <View style={{margin: 10, marginTop: 15, alignItems: 'center'}}>
@@ -116,4 +118,4 @@ const Index_two = () => {
     </View>
   );
 };
-export default Index_two;
+export default Nifty50_Card;

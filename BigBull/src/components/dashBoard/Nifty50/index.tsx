@@ -14,7 +14,7 @@ import styles from './style';
 import fonts from '../../../assests/fonts/Fira_Sans';
 import ColorPalette from '../../../assests/ColorPalette';
 import string from '../../../assests/string';
-import { BASE_URL_NSE, nifty50 } from '../../../services';
+import {BASE_URL_NSE, nifty50} from '../../../services';
 
 const Nifty50 = () => {
   const [searchText, setSearchText] = useState('');

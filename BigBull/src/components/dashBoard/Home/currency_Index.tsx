@@ -7,11 +7,9 @@ import ColorPalette from '../../../assests/ColorPalette';
 import string from '../../../assests/string';
 import {BASE_URL_CURRENCY, getCurrency} from '../../../services';
 
-const API_URL =
-  // 'https://api.moneycontrol.com/mcapi/v1/us-markets/getCurrencies';
-  BASE_URL_CURRENCY + getCurrency;
+const API_URL = BASE_URL_CURRENCY + getCurrency;
 
-const index_three = () => {
+const Currency_Index = () => {
   const [data, setData] = useState();
   const currencyIndex = () => {
     axios
@@ -73,4 +71,4 @@ const index_three = () => {
   );
 };
 
-export default index_three;
+export default Currency_Index;

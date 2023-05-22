@@ -21,7 +21,7 @@ import {BASE_URL_PRICE, marketPrice} from '../../../services';
 
 const fetchData = async () => {
   const response = await axios.get(
-    // 'https://priceapi.moneycontrol.com/technicalCompanyData/globalMarket/getGlobalIndicesListingData?view=overview&deviceType=W',
+
     BASE_URL_PRICE + marketPrice,
   );
 
@@ -30,7 +30,7 @@ const fetchData = async () => {
   return response.data.dataList;
 };
 
-const Index_one = () => {
+const International_Market = () => {
   const navigation = useNavigation();
   const {data, error, isLoading} = useQuery('nse', fetchData);
 
@@ -101,4 +101,4 @@ const Index_one = () => {
   );
 };
 
-export default Index_one;
+export default International_Market;
