@@ -6,6 +6,6 @@ const ColorPalette = {
   textBoldGrey:'#D8D8D8',
   textLight:'#F5F5FD',
   textSky:'#62CDFF',
-  
+  textPink:'#DD7BC2',  
 };
 export default ColorPalette;

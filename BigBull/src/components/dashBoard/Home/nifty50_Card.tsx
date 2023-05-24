@@ -5,10 +5,9 @@ import {NseData} from './nsedata';
 import {useNavigation} from '@react-navigation/core';
 import styles from './style';
 import LinearGradient from 'react-native-linear-gradient';
-import ColorConstants from '../../../assests/ColorPalette';
-import fonts from '../../../assests/fonts/Fira_Sans';
 import {BASE_URL_NSE, nifty50} from '../../../services';
 import routes from '../../../assests/routes';
+import ColorPalette from '../../../assests/ColorPalette';
 
 const Nifty50_Card = () => {
   const navigation = useNavigation();
@@ -50,67 +49,23 @@ const Nifty50_Card = () => {
           // navigation.navigate('Nifty50');
           navigation.navigate(routes.dashboard.Nifty50.path);
         }}>
-        <LinearGradient style={styles.gradient} colors={['#4B0DCF', '#DD7BC2']}>
+        <LinearGradient
+          style={styles.gradient}
+          colors={[ColorPalette.textBlue, ColorPalette.textPink]}>
           <View style={{margin: 10, marginTop: 15, alignItems: 'center'}}>
             {nseData && (
-              <Text
-                style={{
-                  color: 'white',
-                  fontSize: 25,
-                  fontWeight: '800',
-                  fontFamily: fonts.BOLD,
-                }}>
-                {nseData.name}
-              </Text>
+              <Text style={styles.nifty50HeadingText}>{nseData.name}</Text>
             )}
           </View>
 
           {nseData && (
-            <Text
-              style={{
-                color: ColorConstants.textWhite,
-                alignSelf: 'center',
-                fontSize: 18,
-                fontWeight: '500',
-                marginTop: 15,
-              }}>
-              {nseData.timestamp}
-            </Text>
+            <Text style={styles.nifty50TimeStamp}>{nseData.timestamp}</Text>
           )}
 
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              marginHorizontal: 35,
-              marginTop: 20,
-              borderRadius: 20,
-              backgroundColor: ColorConstants.textWhite,
-              elevation: 8,
-              shadowColor: ColorConstants.textBlack,
-              height: 25,
-            }}>
+          <View style={styles.nifty50PriceContainer}>
+            {nseData && <Text style={styles.nifty50Price}>Price :</Text>}
             {nseData && (
-              <Text
-                style={{
-                  color: ColorConstants.textBlack,
-                  fontSize: 18,
-                  fontWeight: '400',
-                  marginLeft: 50,
-                }}>
-                Price :
-              </Text>
-            )}
-            {nseData && (
-              <Text
-                style={{
-                  color: ColorConstants.textBlack,
-                  fontSize: 18,
-                  fontWeight: '300',
-                  marginRight: 30,
-                }}>
-                {nseData.metadata.last}
-              </Text>
+              <Text style={styles.nifty50Last}>{nseData.metadata.last}</Text>
             )}
           </View>
         </LinearGradient>

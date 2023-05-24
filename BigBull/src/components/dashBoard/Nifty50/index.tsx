@@ -18,7 +18,8 @@ import {BASE_URL_NSE, nifty50} from '../../../services';
 
 const Nifty50 = () => {
   const [searchText, setSearchText] = useState('');
-  const [refreshing, setRefreshing] = React.useState(false);
+  const [refreshing, setRefreshing] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
@@ -31,7 +32,7 @@ const Nifty50 = () => {
   useEffect(() => {
     {
       NseModule.onBridge('Init');
-      setTimeout(() => {
+      setInterval(() => {
         getNse();
       }, 1000);
     }
@@ -46,13 +47,14 @@ const Nifty50 = () => {
   };
   const getNse = async () => {
     try {
-      setInterval(async () => {
+
+      setTimeout(async () => {
         await NseModule.getAPIResponse(
           BASE_URL_NSE + nifty50,
           callbackSuccess,
           callbackError,
         );
-      }, 5000);
+      }, 1000);
     } catch (error) {
       console.error('testf ' + error);
     } finally {
@@ -75,7 +77,7 @@ const Nifty50 = () => {
           onChangeText={text => setSearchText(text)}
           value={searchText}
         />
-        <Search_Icon width={28} height={45} />
+        <Search_Icon width={25} height={45} />
       </View>
 
       {nseData?.data !== undefined && (
@@ -86,52 +88,31 @@ const Nifty50 = () => {
             // data={nseData.data}
             data={filteredData}
             nestedScrollEnabled
-            key={'*'}
-            bounces={false}
+            // key={'*'}
+            // bounces={false}
             ListFooterComponent={() => {
               return <View style={{height: 5}} />;
             }}
             showsVerticalScrollIndicator={false}
             renderItem={({item, index}) => (
               <View style={styles.itemContainer}>
-                <Text
-                  style={{
-                    color: ColorPalette.textBlack,
-                    fontSize: 18,
-                    fontFamily: fonts.BOLD,
-                  }}>
-                  {'' + item.symbol}
-                </Text>
+                <Text style={styles.symbolText}>{'' + item.symbol}</Text>
 
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    margin: 15,
-                    marginHorizontal: 5,
-                  }}>
-                  <Text
-                    style={{color: ColorPalette.textBlack, fontWeight: '500'}}>
-                    {'Price: ' + item.lastPrice}
+                <View style={styles.priceOpeContainer}>
+                  <Text style={styles.priceOpenText}>
+                    {string.price + item.lastPrice}
                   </Text>
-                  <Text
-                    style={{color: ColorPalette.textBlack, fontWeight: '500'}}>
-                    {'Open:  ' + item.open}
+                  <Text style={styles.priceOpenText}>
+                    {string.open + item.open}
                   </Text>
                 </View>
 
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                  }}>
-                  <Text
-                    style={{color: ColorPalette.textBlack, fontWeight: '500'}}>
-                    {'Day High:  ' + item.dayHigh}
+                <View style={styles.highLowConatiner}>
+                  <Text style={styles.highLowText}>
+                    {string.dayHigh + item.dayHigh}
                   </Text>
-                  <Text
-                    style={{color: ColorPalette.textBlack, fontWeight: '500'}}>
-                    {'Day Low:  ' + item.dayLow}
+                  <Text style={styles.highLowText}>
+                    {string.dayLow + item.dayLow}
                   </Text>
                 </View>
               </View>

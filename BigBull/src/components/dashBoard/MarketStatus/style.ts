@@ -1,9 +1,22 @@
 import {StyleSheet} from 'react-native';
 import fonts from '../../../assests/fonts/Fira_Sans';
-import ColorConstants from '../../../assests/ColorPalette';
+
 import ColorPalette from '../../../assests/ColorPalette';
 
 const styles = StyleSheet.create({
+  inbetweenContainer:{
+    backgroundColor: ColorPalette.textWhite,
+    height: 40,
+    borderTopLeftRadius: 50,
+    borderTopRightRadius: 50,
+    borderRadius: 5,
+  },
+  scrollDownText:{
+    color: ColorPalette.textBlack,
+    fontSize:12,
+    fontWeight:'500',
+    marginLeft:20,
+  },
   marketItemContainer: {
     borderRadius: 20,
     padding: 10,

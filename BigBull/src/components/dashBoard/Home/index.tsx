@@ -6,16 +6,11 @@ import HomeProfile from './HomeProfile';
 import Index_three from './Currency_Index';
 import styles from './style';
 import {ScrollView} from 'react-native-gesture-handler';
-import ColorPalette from '../../../assests/ColorPalette';
 
 const Home = () => {
   return (
     <ScrollView>
-      <View
-        style={{
-          backgroundColor: ColorPalette.textWhite,
-          flex: 1,
-        }}>
+      <View style={styles.indexContainer}>
         <HomeProfile />
         <Index_two />
         <Index_one />

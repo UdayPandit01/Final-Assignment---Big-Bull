@@ -1,11 +1,11 @@
 import {StyleSheet} from 'react-native';
-import ColorConstants from '../../../assests/ColorPalette';
 import ColorPalette from '../../../assests/ColorPalette';
+import fonts from '../../../assests/fonts/Fira_Sans';
 
 const styles = StyleSheet.create({
   searchBar: {
     borderRadius: 30,
-    width:'93%',
+    width: '93%',
     height: 45,
     margin: 11,
     marginTop: 15,
@@ -32,6 +32,29 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     elevation: 10,
     shadowColor: 'black',
+  },
+  symbolText: {
+    color: ColorPalette.textBlack,
+    fontSize: 18,
+    fontFamily: fonts.BOLD,
+  },
+  priceOpeContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    margin: 15,
+    marginHorizontal: 5,
+  },
+  priceOpenText:{
+    color: ColorPalette.textBlack, 
+    fontWeight: '500'
+  },
+  highLowConatiner:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  highLowText:{
+    color: ColorPalette.textBlack, 
+    fontWeight: '500',
   },
 });
 export default styles;

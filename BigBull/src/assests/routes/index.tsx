@@ -37,9 +37,7 @@ const routes = {
   },
 
   root: {
-    // dashboardNaviagtion: {
-      path: 'DashboardNavigation',
-    // },
+    path: 'DashboardNavigation',
   },
 };
 

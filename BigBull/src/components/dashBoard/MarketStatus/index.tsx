@@ -8,7 +8,7 @@ import ColorPalette from '../../../assests/ColorPalette';
 import { BASE_URL_NSE, marketStatus } from '../../../services';
 import { ScrollView } from 'react-native-gesture-handler';
 
-// import {TouchableOpacity} from 'react-native-gesture-handler';
+
 
 const MarketStatus = () => {
   const [nseData, setNseData] = useState<NseData>();
@@ -31,7 +31,6 @@ const MarketStatus = () => {
   const getNse = async () => {
     try {
       await NseModule.getAPIResponse(
-        // 'https://www.nseindia.com/api/marketStatus',
         BASE_URL_NSE+marketStatus,
         callbackSuccess,
         callbackError,
@@ -53,14 +52,10 @@ const MarketStatus = () => {
   return (
     <>
     <ScrollView>
-
-    
       <View
-
-style={{
-  height: 285,
+        style={{
+        height: 285,
           backgroundColor: ColorPalette.textPurple,
-          marginTop: 0,
         }}>
         <Lottie
           style={[styles.Logo]}
@@ -73,16 +68,10 @@ style={{
       <View style={{backgroundColor: ColorPalette.textPurple}}>
 
         <View
-          style={{
-            backgroundColor: ColorPalette.textWhite,
-            height: 40,
-            borderTopLeftRadius: 50,
-            borderTopRightRadius: 50,
-            borderRadius: 5,
-          }}
+          style={styles.inbetweenContainer}
         />
         <View style={{backgroundColor:ColorPalette.textWhite}}>
-            <Text style={{color: ColorPalette.textBlack,fontSize:12,fontWeight:'500',marginLeft:20}}>Scroll Down For More >></Text>
+            <Text style={styles.scrollDownText}>Scroll Down For More >></Text>
         </View>
       </View>
 
@@ -94,8 +83,6 @@ style={{
             <View
               style={{
                 backgroundColor: ColorPalette.textWhite,
-                borderTopLeftRadius: 0,
-                borderTopRightRadius: 0,
               }}>
               <Text style={{color: ColorPalette.textBlack}} />
 
@@ -109,7 +96,7 @@ style={{
                     <Text style={styles.tradeText}>{item.tradeDate}</Text>
                   </View>
                   <Text style={styles.marketStatusText}>
-                    {item.marketStatusMessage}
+                    {item.marketStatusMessage.replace('Normal',"")}
                   </Text>
                 </View>
               </View>

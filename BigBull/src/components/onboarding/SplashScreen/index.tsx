@@ -3,13 +3,14 @@ import React from 'react';
 import LottieView from 'lottie-react-native';
 import styles from './style';
 import string from '../../../assests/string';
+import ColorPalette from '../../../assests/ColorPalette';
 
 const Splashscreen = () => {
   return (
     <>
       <StatusBar
         barStyle="dark-content"
-        backgroundColor="#908FEC"
+        backgroundColor={ColorPalette.textPurple}
         translucent={false}
       />
       <View style={styles.container}>
